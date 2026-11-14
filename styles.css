@@ -120,14 +120,13 @@ html, body {
   justify-content: space-between;
   background: #000000;
   color: #ffffff;
-  height: 38px;
+  min-height: 38px;
   padding: 0 18px;
   font-family: var(--font-mono);
   font-size: 11.5px;
   border-bottom: 1px solid #27272a;
-  position: sticky;
-  top: 0;
-  z-index: 200;
+  position: relative;
+  z-index: 20;
 }
 
 .marquee-badge {
@@ -214,6 +213,26 @@ html, body {
 .ticker-mini-adv.adv-sell { background: #dc2626; color: #ffffff; }
 .ticker-mini-adv.adv-hold { background: #d97706; color: #ffffff; }
 
+.marquee-date-clock {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #a1a1aa;
+  flex-shrink: 0;
+}
+
+.marquee-live-date {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.marquee-clock-sep {
+  color: #52525b;
+}
+
 .marquee-clock {
   color: #a1a1aa;
   font-weight: 600;
@@ -227,10 +246,8 @@ html, body {
 .wb-header {
   background: var(--bg-card);
   border-bottom: 1px solid var(--border-hairline);
-  position: sticky;
-  top: 38px;
-  z-index: 150;
-  backdrop-filter: blur(14px);
+  position: relative;
+  z-index: 10;
 }
 
 .wb-header-container {
@@ -313,6 +330,36 @@ html, body {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+.wb-date-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: var(--bg-subtle);
+  border: 1px solid var(--border-hairline);
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  color: var(--text-main);
+  white-space: nowrap;
+}
+
+.wb-date-badge .date-icon {
+  font-size: 13px;
+}
+
+.wb-date-badge .date-label {
+  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 10px;
+  letter-spacing: 0.05em;
+}
+
+.wb-date-badge strong {
+  font-weight: 800;
+  color: var(--text-main);
 }
 
 .wb-status-cluster {
@@ -713,6 +760,23 @@ body.wb-dark .wb-switch-pill input:checked + .wb-switch-slider::after {
   color: var(--text-muted);
   font-size: 13.5px;
   max-width: 860px;
+}
+
+/* Institutional TradingView Chart Widget Card */
+.wb-tv-chart-card {
+  margin-bottom: 26px;
+  padding: 24px;
+}
+
+.tv-chart-container {
+  width: 100%;
+  height: 520px;
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  border: 1px solid var(--border-hairline);
+  background: #000000;
+  margin-top: 16px;
+  box-shadow: var(--shadow-card);
 }
 
 /* Analyzer Controls */
@@ -1302,4 +1366,177 @@ body.wb-dark .wb-switch-pill input:checked + .wb-switch-slider::after {
   font-weight: 700;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
   border: 1px solid #3f3f46;
+}
+
+/* =========================================================================
+   9. MOBILE & MULTI-DEVICE RESPONSIVENESS (ZERO SCREEN BLOCKING)
+   ========================================================================= */
+
+@media (max-width: 1024px) {
+  .wb-header-container {
+    padding: 12px 18px;
+    gap: 14px;
+  }
+  .wb-desk-control-bar {
+    padding: 8px 18px;
+  }
+  .wb-main {
+    padding: 18px 18px 50px;
+  }
+}
+
+@media (max-width: 768px) {
+  /* Prevent any sticky or header overflow from blocking the screen */
+  .live-marquee-bar {
+    padding: 0 12px;
+    min-height: 36px;
+    position: relative;
+    top: auto;
+  }
+
+  .wb-header {
+    position: relative;
+    top: auto;
+  }
+
+  .wb-header-container {
+    padding: 10px 14px;
+    gap: 10px;
+  }
+
+  .wb-brand {
+    gap: 10px;
+  }
+
+  .wb-logo-mark {
+    width: 40px;
+    height: 40px;
+    font-size: 15px;
+  }
+
+  .wb-title-line h1 {
+    font-size: 18px;
+  }
+
+  .wb-header-actions {
+    width: 100%;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .wb-date-badge {
+    padding: 5px 10px;
+    font-size: 11px;
+  }
+
+  .wb-status-cluster {
+    gap: 6px;
+  }
+
+  .wb-btn-black, .wb-btn-outline {
+    padding: 7px 12px;
+    font-size: 11.5px;
+  }
+
+  .wb-desk-control-bar {
+    padding: 6px 14px;
+  }
+
+  .wb-desk-control-inner {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 8px;
+  }
+
+  .wb-segmented-group {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    padding: 3px;
+  }
+
+  .wb-seg-btn {
+    padding: 6px 12px;
+    font-size: 11.5px;
+  }
+
+  .wb-toggle-switches-bar {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    gap: 6px;
+    padding-bottom: 2px;
+  }
+
+  .wb-switch-pill {
+    padding: 4px 10px 4px 6px;
+    font-size: 11px;
+  }
+
+  .wb-main {
+    padding: 14px 12px 40px;
+  }
+
+  .wb-section-card {
+    padding: 16px;
+    border-radius: var(--radius-md);
+    margin-bottom: 20px;
+  }
+
+  .wb-section-title {
+    font-size: 18px;
+  }
+
+  .wb-section-desc {
+    font-size: 12.5px;
+  }
+
+  .tv-chart-container {
+    height: 350px;
+  }
+
+  .wb-table th, .wb-table td {
+    padding: 10px 8px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .live-marquee-bar {
+    padding: 0 8px;
+    font-size: 10px;
+  }
+
+  .marquee-badge {
+    padding: 2px 6px;
+    font-size: 8.5px;
+  }
+
+  .marquee-date-clock {
+    font-size: 9.5px;
+    gap: 4px;
+  }
+
+  .marquee-live-date {
+    display: none;
+  }
+
+  .wb-title-line h1 {
+    font-size: 16px;
+  }
+
+  .wb-subtitle {
+    font-size: 11px;
+  }
+
+  .wb-date-badge {
+    font-size: 10px;
+    padding: 4px 8px;
+  }
+
+  .tv-chart-container {
+    height: 300px;
+  }
 }

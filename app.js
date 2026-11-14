@@ -18,76 +18,76 @@
       tvSymbol: "OANDA:XAUUSD",
       name: "Gold Spot / US Dollar CFD",
       assetClass: "Precious Metals CFD",
-      price: 4110.69,
-      changePct: 1.24,
-      dayHigh: 4119.42,
-      dayLow: 4057.83,
+      price: 3884.69,
+      changePct: 0.18,
+      dayHigh: 3902.50,
+      dayLow: 3871.10,
       spread: "0.22",
       decimals: 2,
       prefix: "$",
       advisory: "BUY",
       newsSource: "ForexFactory CPI & Central Bank Wire",
       newsHeadline: "US Core CPI holds controlled while global central bank gold reserve accumulation hits record pace; safe-haven demand strong.",
-      entryZone: "$4,095.00 - $4,112.00",
-      takeProfit: "$4,185.00",
-      stopLoss: "$4,055.00"
+      entryZone: "$3,870.00 - $3,885.00",
+      takeProfit: "$3,950.00",
+      stopLoss: "$3,840.00"
     },
     {
       symbol: "BTCUSD",
       tvSymbol: "BITSTAMP:BTCUSD",
       name: "Bitcoin / US Dollar Spot CFD",
       assetClass: "Crypto Macro CFD",
-      price: 80466.65,
-      changePct: 0.03,
-      dayHigh: 80761.54,
-      dayLow: 80174.08,
+      price: 65380.75,
+      changePct: -4.18,
+      dayHigh: 67120.00,
+      dayLow: 64890.00,
       spread: "12.00",
       decimals: 2,
       prefix: "$",
       advisory: "BUY",
       newsSource: "Yahoo Finance Institutional Flows",
       newsHeadline: "Yahoo Finance Report: Spot Bitcoin ETFs record strong net institutional inflows amid FOMC rate easing cycle and sovereign treasury adoption.",
-      entryZone: "$80,100 - $80,550",
-      takeProfit: "$84,500",
-      stopLoss: "$78,400"
+      entryZone: "$64,800 - $65,400",
+      takeProfit: "$68,500",
+      stopLoss: "$63,500"
     },
     {
       symbol: "USDJPY",
       tvSymbol: "FX:USDJPY",
       name: "US Dollar / Japanese Yen FX CFD",
       assetClass: "G10 Major FX CFD",
-      price: 158.110,
-      changePct: -0.19,
-      dayHigh: 158.433,
-      dayLow: 157.857,
+      price: 159.713,
+      changePct: -0.05,
+      dayHigh: 160.120,
+      dayLow: 159.450,
       spread: "0.012",
       decimals: 3,
       prefix: "¥",
       advisory: "BUY",
       newsSource: "ForexFactory NFP & BoJ Policy Report",
       newsHeadline: "ForexFactory Release: Resilient US Non-Farm Payrolls (NFP) and US Treasury yields maintain wide carry spread over Bank of Japan policy rate.",
-      entryZone: "157.850 - 158.150",
-      takeProfit: "160.200",
-      stopLoss: "156.600"
+      entryZone: "159.400 - 159.750",
+      takeProfit: "161.500",
+      stopLoss: "158.500"
     },
     {
       symbol: "EURUSD",
       tvSymbol: "FX:EURUSD",
       name: "Euro / US Dollar FX CFD",
       assetClass: "G10 Major FX CFD",
-      price: 1.1250,
-      changePct: 0.19,
-      dayHigh: 1.1258,
-      dayLow: 1.1223,
+      price: 1.0854,
+      changePct: 0.12,
+      dayHigh: 1.0880,
+      dayLow: 1.0830,
       spread: "0.0001",
       decimals: 4,
       prefix: "$",
       advisory: "SELL",
       newsSource: "ForexFactory Eurozone PMI & ECB Wire",
       newsHeadline: "ForexFactory Macro Report: Eurozone manufacturing PMI softness and dovish ECB rate expectations weigh against US GDP resilience.",
-      entryZone: "1.1245 - 1.1265",
-      takeProfit: "1.1120",
-      stopLoss: "1.1330"
+      entryZone: "1.0845 - 1.0865",
+      takeProfit: "1.0750",
+      stopLoss: "1.0920"
     },
     {
       symbol: "GBPUSD",
@@ -928,6 +928,16 @@
       titleEl.textContent = `${tvSymbol} — ${displayTitle}`;
     }
 
+    // Update active chip state in quick chart bar
+    document.querySelectorAll(".wb-tv-chart-card .wb-chip").forEach(chip => {
+      const onclickAttr = chip.getAttribute("onclick") || "";
+      if (onclickAttr.includes(CURRENT_TV_CHART_SYMBOL)) {
+        chip.classList.add("active");
+      } else {
+        chip.classList.remove("active");
+      }
+    });
+
     const container = document.getElementById("tv_live_chart_container");
     if (!container) return;
     container.innerHTML = "";
@@ -1206,53 +1216,16 @@
     return { headline: text, detectedSymbol, verdict, cfdAction, optionAction, futureAction, rationale };
   }
 
-  window.evaluateCustomNewsHeadline = function () {
-    const inputEl = document.getElementById("custom-news-input");
-    const boxEl = document.getElementById("analyzer-result-box");
-    if (!inputEl || !boxEl) return;
-
-    const analysis = analyzeFinancialNewsHeadline(inputEl.value);
-    const verdictClass =
-      analysis.verdict === "BUY" ? "verdict-buy" : analysis.verdict === "SELL" ? "verdict-sell" : "verdict-hold";
-
-    boxEl.innerHTML = `
-      <div class="analyzer-verdict-grid">
-        <div class="verdict-main-badge-box">
-          <div class="verdict-label">NEWS REPORT VERDICT</div>
-          <div class="verdict-action-big ${verdictClass}">${analysis.verdict}</div>
-          <div style="font-size:11px; color:var(--text-muted); font-family:var(--font-mono);">
-            ${analysis.detectedSymbol}
-          </div>
-        </div>
-        <div class="verdict-details-col">
-          <h4>"${analysis.headline}"</h4>
-          <p>${analysis.rationale}</p>
-          <div class="verdict-desk-impacts">
-            <div class="desk-impact-pill">
-              <strong>💱 CFDs SECTION</strong>
-              <span>${analysis.cfdAction}</span>
-            </div>
-            <div class="desk-impact-pill">
-              <strong>🎯 OPTIONS SECTION</strong>
-              <span>${analysis.optionAction}</span>
-            </div>
-            <div class="desk-impact-pill">
-              <strong>📈 FUTURES SECTION</strong>
-              <span>${analysis.futureAction}</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    `;
+  window.evaluateCustomNewsHeadline = function (text) {
+    if (!text) return;
+    const analysis = analyzeFinancialNewsHeadline(text);
+    showToast(`Signal: ${analysis.verdict} (${analysis.detectedSymbol}) — ${analysis.rationale}`);
   };
 
   window.loadSampleNews = function (sampleText) {
-    const inputEl = document.getElementById("custom-news-input");
-    if (inputEl) {
-      inputEl.value = sampleText;
-      window.evaluateCustomNewsHeadline();
-      showToast("Computed BUY / SELL / HOLD signal from news report");
-    }
+    if (!sampleText) return;
+    const analysis = analyzeFinancialNewsHeadline(sampleText);
+    showToast(`Signal: ${analysis.verdict} (${analysis.detectedSymbol}) — ${analysis.rationale}`);
   };
 
   // =========================================================================
@@ -1756,11 +1729,28 @@
     setTimeout(() => toast.remove(), 3200);
   }
 
+  function updateTodayDate() {
+    const now = new Date();
+    const options = { weekday: "short", year: "numeric", month: "short", day: "numeric" };
+    const formattedDate = now.toLocaleDateString("en-US", options);
+    
+    const headerDateEl = document.getElementById("header-live-today-date");
+    if (headerDateEl) {
+      headerDateEl.textContent = formattedDate;
+    }
+    const marqueeDateEl = document.getElementById("marquee-live-date");
+    if (marqueeDateEl) {
+      marqueeDateEl.textContent = `Today: ${formattedDate}`;
+    }
+  }
+
   function startUtcClock() {
     const clockEl = document.getElementById("utc-clock-display");
-    if (!clockEl) return;
     const tick = () => {
-      clockEl.textContent = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
+      if (clockEl) {
+        clockEl.textContent = new Date().toISOString().replace("T", " ").slice(0, 19) + " UTC";
+      }
+      updateTodayDate();
     };
     tick();
     setInterval(tick, 1000);
@@ -1771,9 +1761,9 @@
   // =========================================================================
 
   document.addEventListener("DOMContentLoaded", () => {
+    updateTodayDate();
     startUtcClock();
     renderAllViews();
-    window.evaluateCustomNewsHeadline();
     window.loadTradingViewChart("OANDA:XAUUSD", "XAUUSD — Gold Spot CFD Live Chart");
 
     // Immediately pull 100% real-time prices from TradingView Scanner API and poll every 4 seconds

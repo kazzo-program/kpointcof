@@ -1,37 +1,41 @@
-# KPOINT COF // White & Grey Macro News Trading Terminal (CFDs, Options & Futures)
+# KPOINT COF // White & Black Macro Trading Terminal (CFDs • Options • Futures)
 
-> **Crisp White & Grey Institutional Interface // 100% Financial News-Driven `BUY / SELL / HOLD` Advisories // Live Direct Feeds from Yahoo Finance & ForexFactory (Zero API Keys Required)**
+> **2026 Stark White & Obsidian Black Terminal // Real-Time TradingView Scanner Feed + Live Interactive Chart // 100% Financial News-Driven `BUY / SELL / HOLD` Advisories // Direct Feeds from TradingView, Yahoo Finance & ForexFactory (Zero API Keys Required)**
 
 ---
 
-## ⚡ Core Architecture & Features
+## ⚡ Core Architecture & Highlights
 
-### 1. Crisp White & Grey Institutional Interface
-- Clean architectural **White & Cool Grey** aesthetic (`#ffffff`, `#f1f4f8`, `#e9eef4`, `#cbd5e1`, `#0f172a`) with high-contrast semantic **BUY** (`#047857`), **SELL** (`#b91c1c`), and **HOLD** (`#b45309`) advisory badges.
-- Includes a one-click **Slate / White Contrast Toggle** in the top header.
+### 1. Stark White & Obsidian Black Next-Gen Design
+- Built with high-contrast architectural **Stark Pure White** (`#ffffff`) and **Obsidian Black** (`#09090b`), sharp hairline borders (`#e4e4e7`), and semantic high-visibility status badges: **▲ BUY** (`#059669`), **▼ SELL** (`#dc2626`), and **◆ HOLD** (`#d97706`).
+- Includes a live Dark/Light mode toggle, dynamic live date display (`Today: Live Date`), and real-time UTC millisecond clock.
 
-### 2. Macro Trading News Strategy (Zero API Keys Required)
-- Pulls live macroeconomic data (**US CPI**, **Core CPI**, **Non-Farm Payrolls NFP**, **FOMC Rate Decisions**, **GDP**, **Core PCE**, **PMI**, **EIA Crude Inventories**) and corporate earnings reports (**META**, **NVDA**, **MSFT**, **AMZN**, **TSLA**, **AAPL**, **INTC**, **BA**) directly from **ForexFactory** (`nfs.faireconomy.media/ff_calendar_thisweek.json`) and **Yahoo Finance** (`query1.finance.yahoo.com/v8/finance/chart` & RSS headlines) with **no API keys required**.
-- Every recommendation (`BUY`, `SELL`, or `HOLD`) is generated **solely from financial news reports** (for example: *META quarterly earnings beat & AI ad revenue surge -> BUY META Call Options & NAS100 CFD*; *Strong NFP jobs report -> BUY USDJPY & ES=F*; *Intel restructuring & margin miss report -> SELL / Buy PUT*).
-- Includes an interactive **Instant News Report → BUY / SELL / HOLD Advisory Simulator** where you can test any custom headline or click any live report from Yahoo Finance or ForexFactory.
+### 2. Zero-Blocking Mobile & Multi-Device Responsiveness
+- Engineered for full mobile responsiveness across smartphones, tablets, and wide-screen institutional displays.
+- Non-sticky navigation structure ensures that **neither the header nor the top ticker ribbon permanently blocks the screen**, providing 100% visible screen space on mobile viewports.
+- Segmented dock and interactive desk toggle switches feature smooth horizontal scroll touch handling.
 
-### 3. Separate Dedicated Desks for CFDs, Options & Futures
-- **💱 CFDs Desk (14 Instruments)**: `XAUUSD` (Gold Spot CFD), `BTCUSD` (Bitcoin Spot CFD), `USDJPY` (FX CFD), `EURUSD`, `GBPUSD`, `NAS100`, `US500`, `US30`, `WTIUSD`, `XAGUSD`, `ETHUSD`, `AUDUSD`, `USDCAD`, `GER40`.
-- **🎯 Options Desk (14 Contracts)**: `META`, `NVDA`, `SPY`, `QQQ`, `MSFT`, `AMZN`, `TSLA`, `NFLX`, `GLD`, `AAPL`, `AMD`, `TLT`, `INTC`, `BA` — complete with Recommended Strike/Expiry, Call/Put type, Live Option Premium, Implied Volatility (IV%), Delta, and the exact Earnings/Macro News report driving the `BUY`, `SELL`, or `HOLD` call.
-- **📈 Futures Desk (14 Exchange Contracts)**: `ES=F` (E-Mini S&P 500), `NQ=F` (E-Mini Nasdaq-100), `GC=F` (COMEX Gold), `YM=F` (E-Mini Dow), `RTY=F` (E-Mini Russell 2000), `SI=F` (Silver), `CL=F` (WTI Crude Oil), `NG=F` (Natural Gas), `ZN=F` (10Y Treasury Note), `ZB=F` (30Y Treasury Bond), `6J=F` (Japanese Yen), `6E=F` (Euro FX), `BTC=F` (CME Bitcoin), `HG=F` (Copper).
+### 3. Real-Time TradingView Prices & Interactive Live Charts (Zero API Keys Required)
+- **Live TradingView Scanner Feed (`scanner.tradingview.com/global/scan`)**: Synchronizes real-time quotes directly every 4 seconds without API keys or authentication.
+- **Embedded Institutional TradingView Chart**: Fast quick-switcher pills to instantly chart `XAUUSD`, `BTCUSD`, `USDJPY`, `EURUSD`, `META`, `NVDA`, `SPY`, `ES1!`, `NQ1!`, `CL1!`, and any custom ticker.
 
-### 4. Continuous Live Updating Prices (Never Out of Date)
-- **Direct Exchange WebSocket (`wss://stream.binance.com:9443`)**: Real-time tick streaming for `BTCUSD`, `ETHUSD`, `BTC=F`, and `XAUUSD`/`GC=F` (via `PAXGUSDT` 1:1 physical London Gold spot anchor).
-- **Direct Interbank FX API (`open.er-api.com`)**: Live spot exchange rates for `USDJPY`, `EURUSD`, `GBPUSD`, `AUDUSD`, `USDCAD`, `6J=F`, and `6E=F`.
-- **Direct Yahoo Finance v8 & Multi-Gateway Sync + Sub-Second Orderbook Tick Engine**: Keeps bid/ask spreads, option premiums, and futures prices updating continuously in real time with green/red flash animations.
+### 4. Separate Dedicated Desks with Interactive Section Toggles
+- **💱 CFDs Desk**: `XAUUSD` (Gold Spot CFD), `BTCUSD` (Bitcoin Spot CFD), `USDJPY` (FX CFD), `EURUSD`, `GBPUSD`, `NAS100`, `US500`, `US30`, `WTIUSD`, `XAGUSD`, `ETHUSD`, `AUDUSD`, `USDCAD`, `GER40`.
+- **🎯 Options Desk**: `META`, `NVDA`, `SPY`, `QQQ`, `MSFT`, `AMZN`, `TSLA`, `NFLX`, `GLD`, `AAPL`, `AMD`, `TLT`, `INTC`, `BA` — complete with strike, expiration, IV%, delta, live premium, and the exact earnings/macro report driving the advisory.
+- **📈 Futures Desk**: `ES1!` (E-Mini S&P 500), `NQ1!` (E-Mini Nasdaq-100), `GC1!` (COMEX Gold), `YM1!` (E-Mini Dow), `RTY1!` (E-Mini Russell 2000), `SI1!` (Silver), `CL1!` (WTI Crude Oil), `NG1!` (Natural Gas), `ZN1!` (10Y Note), `ZB1!` (30Y Bond), `6J1!` (Yen), `6E1!` (Euro FX), `BTC1!` (Bitcoin Futures), `HG1!` (Copper).
+- **Interactive Section Switches**: Allows users to independently toggle visibility of CFDs, Options, and Futures sections on and off at any time.
+
+### 5. News-Driven Macro Strategy (ForexFactory & Yahoo Finance)
+- Pulls live macroeconomic data (**US CPI**, **Core CPI**, **Non-Farm Payrolls NFP**, **FOMC Rate Decisions**, **GDP**, **Core PCE**, **PMI**) direct from ForexFactory's public calendar wire (`nfs.faireconomy.media`) and Yahoo Finance.
+- Every asset's advisory (`BUY`, `SELL`, or `HOLD`) is tied to financial reports and economic releases.
 
 ---
 
 ## 🚀 How to Run
 
-1. **Standalone Browser Mode**: Open [`index.html`](file:///c:/Users/kb90G/OneDrive/quanto2/index.html) directly in any browser or via GitHub Pages.
+1. **Standalone Browser Mode**: Open [`index.html`](file:///c:/Users/kb90G/OneDrive/quanto2/index.html) directly in any web browser or via GitHub Pages.
 2. **Local Python Proxy Server**:
    ```powershell
    python server.py
    ```
-   Then open `http://localhost:8080`.
+   Then open `http://localhost:8080` in your browser.
