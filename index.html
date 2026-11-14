@@ -483,6 +483,7 @@
               <div class="wb-eyebrow">
                 <span class="wb-index-badge">FF</span>
                 <span>FOREXFACTORY LIVE MACRO FEED • NO API KEY</span>
+                <span class="live-wire-pill"><span class="dot-green"></span> <span id="ff-sync-time">Streaming</span></span>
               </div>
               <h2 class="wb-section-title">CPI, NFP, FOMC &amp; High-Impact Releases</h2>
               <p class="wb-section-desc">
@@ -493,6 +494,7 @@
               <button class="wb-filter-btn active" onclick="filterCalendarImpact('ALL', this)">All</button>
               <button class="wb-filter-btn" onclick="filterCalendarImpact('HIGH', this)">High Impact</button>
               <button class="wb-filter-btn" onclick="filterCalendarImpact('USD', this)">USD</button>
+              <button class="btn-link" onclick="fetchLiveForexFactoryCalendar(true)" title="Force sync latest ForexFactory calendar">↻ Refresh</button>
             </div>
           </div>
 
@@ -519,18 +521,22 @@
               <div class="wb-eyebrow">
                 <span class="wb-index-badge">YF</span>
                 <span>YAHOO FINANCE DIRECT RSS WIRE • NO API KEY</span>
+                <span class="live-wire-pill"><span class="dot-green"></span> <span id="yf-sync-time">Live Stream</span></span>
               </div>
               <h2 class="wb-section-title">Live Earnings &amp; Market News Reports</h2>
               <p class="wb-section-desc">
                 Real-time headlines from Yahoo Finance mapped automatically to <strong>BUY / SELL / HOLD</strong> desk actions.
               </p>
             </div>
-            <input
-              type="search"
-              class="wb-search-input"
-              placeholder="Filter news (META, CPI, Gold)..."
-              oninput="filterLiveNewsWire(this.value)"
-            />
+            <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
+              <input
+                type="search"
+                class="wb-search-input"
+                placeholder="Filter news (META, CPI, Gold)..."
+                oninput="filterLiveNewsWire(this.value)"
+              />
+              <button class="btn-link" onclick="fetchLiveYahooFinanceNews(true)" title="Force fetch fresh news headlines">↻ Refresh News</button>
+            </div>
           </div>
 
           <div id="full-yahoo-news-grid" class="wb-news-stack"></div>
