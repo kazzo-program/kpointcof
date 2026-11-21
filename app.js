@@ -18,266 +18,294 @@
       tvSymbol: "OANDA:XAUUSD",
       name: "Gold Spot / US Dollar CFD",
       assetClass: "Precious Metals CFD",
-      price: 3884.69,
-      changePct: 0.18,
-      dayHigh: 3902.50,
-      dayLow: 3871.10,
+      price: 3538.19,
+      changePct: -2.38,
+      dayHigh: 3636.93,
+      dayLow: 3502.99,
       spread: "0.22",
       decimals: 2,
       prefix: "$",
       advisory: "BUY",
       newsSource: "ForexFactory CPI & Central Bank Wire",
       newsHeadline: "US Core CPI holds controlled while global central bank gold reserve accumulation hits record pace; safe-haven demand strong.",
-      entryZone: "$3,870.00 - $3,885.00",
-      takeProfit: "$3,950.00",
-      stopLoss: "$3,840.00"
+      entryZone: "$3,525.00 - $3,542.00",
+      takeProfit: "$3,625.00",
+      stopLoss: "$3,485.00",
+      sentimentDetail: "Overall Positive (Cooling CPI & Sovereign Gold Buying)",
+      actionAdvice: "BUY DIPS ($3,525.00 - $3,542.00 zone) • Target: $3,625.00"
     },
     {
       symbol: "BTCUSD",
       tvSymbol: "BITSTAMP:BTCUSD",
       name: "Bitcoin / US Dollar Spot CFD",
       assetClass: "Crypto Macro CFD",
-      price: 65380.75,
-      changePct: -4.18,
-      dayHigh: 67120.00,
-      dayLow: 64890.00,
+      price: 56111.90,
+      changePct: -4.57,
+      dayHigh: 59111.75,
+      dayLow: 55483.28,
       spread: "12.00",
       decimals: 2,
       prefix: "$",
       advisory: "BUY",
       newsSource: "Yahoo Finance Institutional Flows",
       newsHeadline: "Yahoo Finance Report: Spot Bitcoin ETFs record strong net institutional inflows amid FOMC rate easing cycle and sovereign treasury adoption.",
-      entryZone: "$64,800 - $65,400",
-      takeProfit: "$68,500",
-      stopLoss: "$63,500"
+      entryZone: "$55,600 - $56,300",
+      takeProfit: "$58,800",
+      stopLoss: "$54,500",
+      sentimentDetail: "Overall Positive (Net Institutional Spot ETF Inflows)",
+      actionAdvice: "BUY SPOT CFD ($55,600 - $56,300) • Target: $58,800"
     },
     {
       symbol: "USDJPY",
       tvSymbol: "FX:USDJPY",
       name: "US Dollar / Japanese Yen FX CFD",
       assetClass: "G10 Major FX CFD",
-      price: 159.713,
-      changePct: -0.05,
-      dayHigh: 160.120,
-      dayLow: 159.450,
+      price: 158.561,
+      changePct: -0.69,
+      dayHigh: 159.839,
+      dayLow: 158.417,
       spread: "0.012",
       decimals: 3,
       prefix: "¥",
       advisory: "BUY",
       newsSource: "ForexFactory NFP & BoJ Policy Report",
       newsHeadline: "ForexFactory Release: Resilient US Non-Farm Payrolls (NFP) and US Treasury yields maintain wide carry spread over Bank of Japan policy rate.",
-      entryZone: "159.400 - 159.750",
-      takeProfit: "161.500",
-      stopLoss: "158.500"
+      entryZone: "158.200 - 158.650",
+      takeProfit: "160.500",
+      stopLoss: "157.400",
+      sentimentDetail: "Overall Positive (US NFP Yield Premium Widening vs BoJ)",
+      actionAdvice: "BUY CARRY PAIR (158.200 - 158.650) • Target: 160.500"
     },
     {
       symbol: "EURUSD",
       tvSymbol: "FX:EURUSD",
       name: "Euro / US Dollar FX CFD",
       assetClass: "G10 Major FX CFD",
-      price: 1.0854,
-      changePct: 0.12,
-      dayHigh: 1.0880,
-      dayLow: 1.0830,
+      price: 1.0965,
+      changePct: -0.02,
+      dayHigh: 1.1000,
+      dayLow: 1.0957,
       spread: "0.0001",
       decimals: 4,
       prefix: "$",
       advisory: "SELL",
       newsSource: "ForexFactory Eurozone PMI & ECB Wire",
       newsHeadline: "ForexFactory Macro Report: Eurozone manufacturing PMI softness and dovish ECB rate expectations weigh against US GDP resilience.",
-      entryZone: "1.0845 - 1.0865",
-      takeProfit: "1.0750",
-      stopLoss: "1.0920"
+      entryZone: "1.0950 - 1.0980",
+      takeProfit: "1.0850",
+      stopLoss: "1.1040",
+      sentimentDetail: "Overall Negative (Eurozone PMI Weakness & Dovish ECB)",
+      actionAdvice: "SELL EURUSD RALLIES (1.0950 - 1.0980) • Target: 1.0850"
     },
     {
       symbol: "GBPUSD",
       tvSymbol: "FX:GBPUSD",
       name: "British Pound / US Dollar FX CFD",
       assetClass: "G10 Major FX CFD",
-      price: 1.3485,
-      changePct: 0.10,
-      dayHigh: 1.3492,
-      dayLow: 1.3459,
+      price: 1.3081,
+      changePct: -0.05,
+      dayHigh: 1.3129,
+      dayLow: 1.3076,
       spread: "0.0002",
       decimals: 4,
       prefix: "$",
       advisory: "HOLD",
       newsSource: "ForexFactory UK CPI & BoE Monetary Report",
       newsHeadline: "Bank of England holds cautious stance as UK services inflation balances US dollar NFP momentum; await next UK CPI release.",
-      entryZone: "1.3450 - 1.3500",
-      takeProfit: "1.3610",
-      stopLoss: "1.3380"
+      entryZone: "1.3050 - 1.3110",
+      takeProfit: "1.3220",
+      stopLoss: "1.2980",
+      sentimentDetail: "Balanced Report (Services CPI Balanced by Strong Dollar)",
+      actionAdvice: "HOLD RANGE (1.3050 - 1.3110) • Wait for UK CPI"
     },
     {
       symbol: "NAS100",
       tvSymbol: "NASDAQ:NDX",
       name: "US Tech 100 (Nasdaq-100) CFD",
       assetClass: "US Equity Index CFD",
-      price: 28437.17,
-      changePct: 0.91,
-      dayHigh: 28610.00,
-      dayLow: 28190.00,
+      price: 25028.98,
+      changePct: -5.61,
+      dayHigh: 26429.09,
+      dayLow: 24910.48,
       spread: "0.80",
       decimals: 2,
       prefix: "",
       advisory: "BUY",
       newsSource: "Yahoo Finance Earnings & AI Capex Wire",
       newsHeadline: "Mega-cap tech earnings (META, MSFT, AMZN, AAPL) beat Wall Street EPS estimates on accelerating AI cloud & advertising monetization.",
-      entryZone: "28,350 - 28,460",
-      takeProfit: "29,100",
-      stopLoss: "27,950"
+      entryZone: "24,900 - 25,080",
+      takeProfit: "25,800",
+      stopLoss: "24,500",
+      sentimentDetail: "Overall Positive (Big Tech Cloud & AI Capex Acceleration)",
+      actionAdvice: "BUY NAS100 PULLBACKS (24,900 - 25,080) • Target: 25,800"
     },
     {
       symbol: "US500",
       tvSymbol: "SP:SPX",
       name: "US S&P 500 Index CFD",
       assetClass: "US Equity Index CFD",
-      price: 7688.62,
-      changePct: 1.58,
-      dayHigh: 7725.00,
-      dayLow: 7620.00,
+      price: 6910.39,
+      changePct: -3.70,
+      dayHigh: 7198.67,
+      dayLow: 6882.66,
       spread: "0.40",
       decimals: 2,
       prefix: "",
       advisory: "BUY",
       newsSource: "ForexFactory GDP & Yahoo Earnings Report",
       newsHeadline: "US GDP expands at 2.8% annualized pace alongside 78% of S&P 500 companies beating quarterly earnings expectations.",
-      entryZone: "7,660 - 7,695",
-      takeProfit: "7,850",
-      stopLoss: "7,580"
+      entryZone: "6,880 - 6,920",
+      takeProfit: "7,100",
+      stopLoss: "6,800",
+      sentimentDetail: "Overall Positive (US GDP 2.8% & 78% S&P Earnings Beat)",
+      actionAdvice: "BUY US500 DIPS (6,880 - 6,920) • Target: 7,100"
     },
     {
       symbol: "US30",
       tvSymbol: "OANDA:US30USD",
       name: "Wall Street 30 (Dow Jones) CFD",
       assetClass: "US Equity Index CFD",
-      price: 53521.00,
-      changePct: 0.07,
-      dayHigh: 53535.00,
-      dayLow: 53412.50,
+      price: 48350.30,
+      changePct: -1.47,
+      dayHigh: 49601.40,
+      dayLow: 48008.40,
       spread: "1.50",
       decimals: 2,
       prefix: "",
       advisory: "BUY",
       newsSource: "Yahoo Finance Financials & Industrial Report",
       newsHeadline: "US money-center banks and industrials report strong revenue and net interest income resilience.",
-      entryZone: "53,450 - 53,540",
-      takeProfit: "54,200",
-      stopLoss: "53,100"
+      entryZone: "48,200 - 48,400",
+      takeProfit: "49,200",
+      stopLoss: "47,800",
+      sentimentDetail: "Overall Positive (US Money-Center Banks & Industrials Beat)",
+      actionAdvice: "BUY US30 BLUE-CHIPS (48,200 - 48,400) • Target: 49,200"
     },
     {
       symbol: "WTIUSD",
       tvSymbol: "NYMEX:CL1!",
       name: "WTI Crude Oil Spot CFD",
       assetClass: "Energy Commodity CFD",
-      price: 87.04,
-      changePct: -1.23,
-      dayHigh: 88.43,
-      dayLow: 87.01,
+      price: 83.41,
+      changePct: 1.18,
+      dayHigh: 84.07,
+      dayLow: 80.78,
       spread: "0.03",
       decimals: 2,
       prefix: "$",
       advisory: "SELL",
       newsSource: "ForexFactory EIA Crude Inventory Report",
       newsHeadline: "EIA Weekly Petroleum Status Report shows higher-than-forecast US commercial crude inventory build (+2.4M barrels).",
-      entryZone: "$87.00 - $87.60",
-      takeProfit: "$84.20",
-      stopLoss: "$88.90"
+      entryZone: "$83.00 - $83.80",
+      takeProfit: "$80.50",
+      stopLoss: "$85.20",
+      sentimentDetail: "Overall Negative (+2.4M Barrel US Commercial Crude Build)",
+      actionAdvice: "SELL WTIUSD RALLIES ($83.00 - $83.80) • Target: $80.50"
     },
     {
       symbol: "XAGUSD",
       tvSymbol: "TVC:SILVER",
       name: "Silver Spot / US Dollar CFD",
       assetClass: "Precious Metals CFD",
-      price: 52.78,
-      changePct: 1.05,
-      dayHigh: 52.89,
-      dayLow: 52.27,
+      price: 41.22,
+      changePct: -3.88,
+      dayHigh: 43.23,
+      dayLow: 40.78,
       spread: "0.02",
       decimals: 2,
       prefix: "$",
       advisory: "BUY",
       newsSource: "Yahoo Finance Industrial & Metals Report",
       newsHeadline: "Global solar photovoltaic & AI hardware electrical demand drives physical silver supply deficit alongside Gold rally.",
-      entryZone: "$52.40 - $52.85",
-      takeProfit: "$55.20",
-      stopLoss: "$51.30"
+      entryZone: "$40.80 - $41.30",
+      takeProfit: "$43.50",
+      stopLoss: "$39.80",
+      sentimentDetail: "Overall Positive (Solar PV & AI Hardware Structural Deficit)",
+      actionAdvice: "BUY SILVER DIPS ($40.80 - $41.30) • Target: $43.50"
     },
     {
       symbol: "ETHUSD",
       tvSymbol: "BITSTAMP:ETHUSD",
       name: "Ethereum / US Dollar Spot CFD",
       assetClass: "Crypto Macro CFD",
-      price: 2419.87,
-      changePct: -0.10,
-      dayHigh: 2430.56,
-      dayLow: 2405.28,
+      price: 1565.32,
+      changePct: -3.33,
+      dayHigh: 1625.81,
+      dayLow: 1536.00,
       spread: "1.20",
       decimals: 2,
       prefix: "$",
       advisory: "BUY",
       newsSource: "Yahoo Finance Digital Asset Wire",
       newsHeadline: "Institutional RWA tokenization funds and DeFi staking activity expand on Ethereum L1/L2 networks.",
-      entryZone: "$2,400 - $2,425",
-      takeProfit: "$2,620",
-      stopLoss: "$2,330"
+      entryZone: "$1,540 - $1,575",
+      takeProfit: "$1,680",
+      stopLoss: "$1,490",
+      sentimentDetail: "Overall Positive (Institutional RWA Tokenization Expansion)",
+      actionAdvice: "BUY ETHEREUM ACCUMULATION ($1,540 - $1,575) • Target: $1,680"
     },
     {
       symbol: "AUDUSD",
       tvSymbol: "FX:AUDUSD",
       name: "Australian Dollar / US Dollar CFD",
       assetClass: "G10 Commodity FX CFD",
-      price: 0.7014,
-      changePct: 0.12,
-      dayHigh: 0.7018,
-      dayLow: 0.7000,
+      price: 0.6616,
+      changePct: -0.63,
+      dayHigh: 0.6682,
+      dayLow: 0.6609,
       spread: "0.0002",
       decimals: 4,
       prefix: "$",
       advisory: "HOLD",
       newsSource: "ForexFactory RBA & Commodity Export Wire",
       newsHeadline: "Reserve Bank of Australia maintains inflation vigilance while iron ore demand remains range-bound; neutral bias.",
-      entryZone: "0.6995 - 0.7025",
-      takeProfit: "0.7090",
-      stopLoss: "0.6940"
+      entryZone: "0.6600 - 0.6630",
+      takeProfit: "0.6720",
+      stopLoss: "0.6550",
+      sentimentDetail: "Balanced Report (RBA Inflation Vigilance vs Iron Ore Range)",
+      actionAdvice: "HOLD RANGE (0.6600 - 0.6630) • Neutral Carry Bias"
     },
     {
       symbol: "USDCAD",
       tvSymbol: "FX:USDCAD",
       name: "US Dollar / Canadian Dollar CFD",
       assetClass: "G10 Major FX CFD",
-      price: 1.3954,
-      changePct: -0.17,
-      dayHigh: 1.3977,
-      dayLow: 1.3948,
+      price: 1.4349,
+      changePct: 0.07,
+      dayHigh: 1.4356,
+      dayLow: 1.4299,
       spread: "0.0002",
       decimals: 4,
       prefix: "C$",
       advisory: "BUY",
       newsSource: "ForexFactory BoC vs Fed Policy Divergence",
       newsHeadline: "Bank of Canada rate cuts and softer WTI crude oil prices weigh on CAD against strong US NFP labor data.",
-      entryZone: "1.3940 - 1.3965",
-      takeProfit: "1.4080",
-      stopLoss: "1.3870"
+      entryZone: "1.4320 - 1.4360",
+      takeProfit: "1.4480",
+      stopLoss: "1.4260",
+      sentimentDetail: "Overall Positive (Bank of Canada Easing vs US NFP Labor)",
+      actionAdvice: "BUY USDCAD PULLBACKS (1.4320 - 1.4360) • Target: 1.4480"
     },
     {
       symbol: "GER40",
       tvSymbol: "OANDA:DE30EUR",
       name: "Germany 40 (DAX Index) CFD",
       assetClass: "European Equity Index CFD",
-      price: 26549.20,
-      changePct: -0.33,
-      dayHigh: 26631.20,
-      dayLow: 26514.80,
+      price: 24553.40,
+      changePct: -2.85,
+      dayHigh: 25296.40,
+      dayLow: 24537.00,
       spread: "1.20",
       decimals: 2,
       prefix: "€",
       advisory: "HOLD",
       newsSource: "ForexFactory German ZEW & Auto Sector News",
       newsHeadline: "Enterprise software gains offset European industrial headwinds; market awaits next Eurozone CPI print.",
-      entryZone: "26,480 - 26,580",
-      takeProfit: "26,950",
-      stopLoss: "26,200"
+      entryZone: "24,450 - 24,600",
+      takeProfit: "25,100",
+      stopLoss: "24,200",
+      sentimentDetail: "Balanced Report (Software Offsets European Auto Weakness)",
+      actionAdvice: "HOLD RANGE (24,450 - 24,600) • Wait for Eurozone CPI"
     }
   ];
 
@@ -286,173 +314,195 @@
       ticker: "META",
       tvSymbol: "NASDAQ:META",
       company: "Meta Platforms Inc.",
-      stockPrice: 630.00,
-      changePct: 1.44,
-      contract: "META $635 CALL (30D Exp)",
+      stockPrice: 560.84,
+      changePct: -5.93,
+      contract: "META $565 CALL (30D Exp)",
       optionType: "CALL",
-      optionPremium: 22.68,
+      optionPremium: 19.63,
       iv: "34.2%",
       delta: "+0.54",
       advisory: "BUY",
       newsSource: "Yahoo Finance Quarterly Earnings Report",
-      newsReport: "META Earnings Report: Revenue surged +19% YoY and EPS beat consensus by +14.2%, driven by AI-powered Advantage+ ad impressions and higher price per ad."
+      newsReport: "META Earnings Report: Revenue surged +19% YoY and EPS beat consensus by +14.2%, driven by AI-powered Advantage+ ad impressions and higher price per ad.",
+      sentimentDetail: "Overall Positive (Q4 EPS Beat +14.2% & Ad Growth +19% YoY)",
+      actionAdvice: "BUY META $565 CALL Option (30D Exp, Delta +0.54)"
     },
     {
       ticker: "NVDA",
       tvSymbol: "NASDAQ:NVDA",
       company: "NVIDIA Corporation",
-      stockPrice: 200.13,
-      changePct: -3.17,
-      contract: "NVDA $205 CALL (30D Exp)",
+      stockPrice: 125.53,
+      changePct: -14.01,
+      contract: "NVDA $130 CALL (30D Exp)",
       optionType: "CALL",
-      optionPremium: 7.20,
+      optionPremium: 4.39,
       iv: "46.8%",
       delta: "+0.51",
       advisory: "BUY",
       newsSource: "Yahoo Finance Semiconductor & SEC Wire",
-      newsReport: "Financial News Report: NVIDIA Blackwell B200 AI architecture supply booked out 12 months as Microsoft, Meta, Google, and Amazon raise combined data center capex above $220B."
+      newsReport: "Financial News Report: NVIDIA Blackwell B200 AI architecture supply booked out 12 months as Microsoft, Meta, Google, and Amazon raise combined data center capex above $220B.",
+      sentimentDetail: "Overall Positive (Blackwell B200 GPUs Booked Out 12 Months)",
+      actionAdvice: "BUY NVDA $130 CALL Option (30D Exp, Delta +0.51)"
     },
     {
       ticker: "SPY",
       tvSymbol: "AMEX:SPY",
       company: "SPDR S&P 500 ETF Trust",
-      stockPrice: 766.81,
-      changePct: 1.65,
-      contract: "SPY $770 CALL (14D Macro Exp)",
+      stockPrice: 689.81,
+      changePct: -3.64,
+      contract: "SPY $695 CALL (14D Macro Exp)",
       optionType: "CALL",
       optionPremium: 6.95,
       iv: "14.6%",
       delta: "+0.49",
       advisory: "BUY",
       newsSource: "ForexFactory CPI + NFP Macro Release",
-      newsReport: "Macro News Report: US Non-Farm Payrolls (NFP) beat expectations (+227K) while Core CPI inflation remained anchored at 0.3% MoM, confirming a goldilocks expansion."
+      newsReport: "Macro News Report: US Non-Farm Payrolls (NFP) beat expectations (+227K) while Core CPI inflation remained anchored at 0.3% MoM, confirming a goldilocks expansion.",
+      sentimentDetail: "Overall Positive (Resilient 227K NFP & Controlled 0.3% CPI)",
+      actionAdvice: "BUY SPY $695 CALL Option (14D Macro Exp, Delta +0.49)"
     },
     {
       ticker: "QQQ",
       tvSymbol: "NASDAQ:QQQ",
       company: "Invesco QQQ Trust (Nasdaq-100)",
-      stockPrice: 691.95,
-      changePct: 0.97,
-      contract: "QQQ $695 CALL (21D Exp)",
+      stockPrice: 608.45,
+      changePct: -5.67,
+      contract: "QQQ $615 CALL (21D Exp)",
       optionType: "CALL",
-      optionPremium: 9.40,
+      optionPremium: 8.50,
       iv: "19.4%",
       delta: "+0.48",
       advisory: "BUY",
       newsSource: "Yahoo Finance Tech Earnings Aggregate",
-      newsReport: "Nasdaq-100 constituent financial reports show +22% YoY net income growth led by cloud hyperscalers and AI semiconductor leaders."
+      newsReport: "Nasdaq-100 constituent financial reports show +22% YoY net income growth led by cloud hyperscalers and AI semiconductor leaders.",
+      sentimentDetail: "Overall Positive (+22% YoY Hyperscaler Net Income Growth)",
+      actionAdvice: "BUY QQQ $615 CALL Option (21D Exp, Delta +0.48)"
     },
     {
       ticker: "MSFT",
       tvSymbol: "NASDAQ:MSFT",
       company: "Microsoft Corporation",
-      stockPrice: 555.80,
-      changePct: 6.68,
-      contract: "MSFT $560 CALL (30D Exp)",
+      stockPrice: 484.52,
+      changePct: -2.77,
+      contract: "MSFT $490 CALL (30D Exp)",
       optionType: "CALL",
       optionPremium: 14.80,
       iv: "24.8%",
       delta: "+0.49",
       advisory: "BUY",
       newsSource: "Yahoo Finance Quarterly Earnings Report",
-      newsReport: "Microsoft Earnings Report: Azure cloud revenue grew +33% YoY with AI services contributing 12 percentage points of growth; commercial bookings rose +23%."
+      newsReport: "Microsoft Earnings Report: Azure cloud revenue grew +33% YoY with AI services contributing 12 percentage points of growth; commercial bookings rose +23%.",
+      sentimentDetail: "Overall Positive (Azure Cloud +33% YoY & AI Services Surge)",
+      actionAdvice: "BUY MSFT $490 CALL Option (30D Exp, Delta +0.49)"
     },
     {
       ticker: "AMZN",
       tvSymbol: "NASDAQ:AMZN",
       company: "Amazon.com Inc.",
-      stockPrice: 266.03,
-      changePct: 6.12,
-      contract: "AMZN $270 CALL (30D Exp)",
+      stockPrice: 246.82,
+      changePct: -4.10,
+      contract: "AMZN $250 CALL (30D Exp)",
       optionType: "CALL",
-      optionPremium: 8.15,
+      optionPremium: 8.64,
       iv: "29.5%",
       delta: "+0.48",
       advisory: "BUY",
       newsSource: "Yahoo Finance AWS & Retail Earnings Wire",
-      newsReport: "Amazon Financial Report: Operating income jumped +56% YoY to $17.4B as AWS cloud margins reached a record high and fulfillment costs declined."
+      newsReport: "Amazon Financial Report: Operating income jumped +56% YoY to $17.4B as AWS cloud margins reached a record high and fulfillment costs declined.",
+      sentimentDetail: "Overall Positive (AWS Operating Income Jumped +56% YoY)",
+      actionAdvice: "BUY AMZN $250 CALL Option (30D Exp, Delta +0.48)"
     },
     {
       ticker: "TSLA",
       tvSymbol: "NASDAQ:TSLA",
       company: "Tesla Inc.",
-      stockPrice: 385.19,
-      changePct: -3.34,
-      contract: "TSLA $390 CALL (30D Exp)",
+      stockPrice: 345.82,
+      changePct: -7.64,
+      contract: "TSLA $350 CALL (30D Exp)",
       optionType: "CALL",
-      optionPremium: 19.40,
+      optionPremium: 18.20,
       iv: "58.4%",
       delta: "+0.50",
       advisory: "BUY",
       newsSource: "Yahoo Finance Automotive & Energy Report",
-      newsReport: "Tesla Financial Report: Automotive gross margin ex-credits expanded to 17.1% while Megapack energy storage deployments surged +114% YoY."
+      newsReport: "Tesla Financial Report: Automotive gross margin ex-credits expanded to 17.1% while Megapack energy storage deployments surged +114% YoY.",
+      sentimentDetail: "Overall Positive (Auto Margin Ex-Credits 17.1% & Megapack +114%)",
+      actionAdvice: "BUY TSLA $350 CALL Option (30D Exp, Delta +0.50)"
     },
     {
       ticker: "NFLX",
       tvSymbol: "NASDAQ:NFLX",
       company: "Netflix Inc.",
-      stockPrice: 66.39,
-      changePct: 4.68,
-      contract: "NFLX $67.50 CALL (30D Exp)",
+      stockPrice: 56.73,
+      changePct: -2.96,
+      contract: "NFLX $58 CALL (30D Exp)",
       optionType: "CALL",
-      optionPremium: 2.45,
+      optionPremium: 2.10,
       iv: "31.0%",
       delta: "+0.48",
       advisory: "BUY",
       newsSource: "Yahoo Finance Subscriber Earnings Report",
-      newsReport: "Netflix Earnings Report: Added 5.1M net new paid subscribers (beating 4.0M consensus), raised operating margin guidance to 28%, and grew ad-tier +35% QoQ."
+      newsReport: "Netflix Earnings Report: Added 5.1M net new paid subscribers (beating 4.0M consensus), raised operating margin guidance to 28%, and grew ad-tier +35% QoQ.",
+      sentimentDetail: "Overall Positive (+5.1M Subscribers Beat Consensus of 4.0M)",
+      actionAdvice: "BUY NFLX $58 CALL Option (30D Exp, Delta +0.48)"
     },
     {
       ticker: "GLD",
       tvSymbol: "AMEX:GLD",
       company: "SPDR Gold Shares ETF",
-      stockPrice: 372.49,
-      changePct: 3.68,
-      contract: "GLD $375 CALL (45D Exp)",
+      stockPrice: 322.87,
+      changePct: -3.67,
+      contract: "GLD $325 CALL (45D Exp)",
       optionType: "CALL",
       optionPremium: 6.80,
       iv: "16.2%",
       delta: "+0.49",
       advisory: "BUY",
       newsSource: "ForexFactory CPI & Sovereign Gold Report",
-      newsReport: "World Gold Council & ForexFactory Macro Report: Emerging market central banks increased gold bullion reserves while FOMC rate cuts lower real opportunity cost."
+      newsReport: "World Gold Council & ForexFactory Macro Report: Emerging market central banks increased gold bullion reserves while FOMC rate cuts lower real opportunity cost.",
+      sentimentDetail: "Overall Positive (Central Bank Buying & FOMC Rate Easing)",
+      actionAdvice: "BUY GLD $325 CALL Option (45D Exp, Delta +0.49)"
     },
     {
       ticker: "AAPL",
       tvSymbol: "NASDAQ:AAPL",
       company: "Apple Inc.",
-      stockPrice: 349.51,
-      changePct: 5.31,
-      contract: "AAPL $345/$355 IRON CONDOR",
+      stockPrice: 342.56,
+      changePct: -1.90,
+      contract: "AAPL $335/$350 IRON CONDOR",
       optionType: "NEUTRAL",
       optionPremium: 4.90,
       iv: "21.5%",
       delta: "0.02",
       advisory: "HOLD",
       newsSource: "Yahoo Finance Quarterly Earnings Report",
-      newsReport: "Apple Financial Report: Services revenue hit an all-time record ($24.97B), while hardware cycle remains steady; advise HOLD."
+      newsReport: "Apple Financial Report: Services revenue hit an all-time record ($24.97B), while hardware cycle remains steady; advise HOLD.",
+      sentimentDetail: "Balanced Report (Record Services $24.97B vs Steady Hardware)",
+      actionAdvice: "HOLD / TRADE AAPL $335/$350 IRON CONDOR (Delta 0.02)"
     },
     {
       ticker: "AMD",
       tvSymbol: "NASDAQ:AMD",
       company: "Advanced Micro Devices Inc.",
-      stockPrice: 488.78,
-      changePct: 1.01,
-      contract: "AMD $490 STRADDLE (Neutral)",
+      stockPrice: 424.39,
+      changePct: -13.25,
+      contract: "AMD $425 STRADDLE (Neutral)",
       optionType: "NEUTRAL",
-      optionPremium: 16.50,
+      optionPremium: 15.20,
       iv: "44.0%",
       delta: "0.05",
       advisory: "HOLD",
       newsSource: "Yahoo Finance Guidance Report",
-      newsReport: "AMD Financial Report: Data center revenue rose +122% YoY on MI300X GPU ramp, while quarterly revenue guidance matched consensus; advise HOLD."
+      newsReport: "AMD Financial Report: Data center revenue rose +122% YoY on MI300X GPU ramp, while quarterly revenue guidance matched consensus; advise HOLD.",
+      sentimentDetail: "Balanced Report (Data Center +122% vs In-Line Revenue Guide)",
+      actionAdvice: "HOLD / TRADE AMD $425 STRADDLE (IV 44.0%, Delta 0.05)"
     },
     {
       ticker: "TLT",
       tvSymbol: "NASDAQ:TLT",
       company: "iShares 20+ Year Treasury Bond ETF",
-      stockPrice: 81.76,
-      changePct: 0.80,
+      stockPrice: 81.45,
+      changePct: 1.37,
       contract: "TLT $80/$83 RANGE COLLAR",
       optionType: "NEUTRAL",
       optionPremium: 1.55,
@@ -460,37 +510,43 @@
       delta: "-0.04",
       advisory: "HOLD",
       newsSource: "ForexFactory Treasury Auction & CPI Wire",
-      newsReport: "US Treasury quarterly refunding supply offsets Fed rate cuts, keeping long yields range-bound; advise HOLD until next CPI print."
+      newsReport: "US Treasury quarterly refunding supply offsets Fed rate cuts, keeping long yields range-bound; advise HOLD until next CPI print.",
+      sentimentDetail: "Balanced Report (Treasury Refunding Offsets Fed Cuts)",
+      actionAdvice: "HOLD / TRADE TLT $80/$83 RANGE COLLAR (Delta -0.04)"
     },
     {
       ticker: "INTC",
       tvSymbol: "NASDAQ:INTC",
       company: "Intel Corporation",
-      stockPrice: 58.27,
-      changePct: -3.77,
-      contract: "INTC $57 PUT (45D Bearish)",
+      stockPrice: 51.28,
+      changePct: -7.97,
+      contract: "INTC $50 PUT (45D Bearish)",
       optionType: "PUT",
       optionPremium: 2.65,
       iv: "51.2%",
       delta: "-0.46",
       advisory: "SELL",
       newsSource: "Yahoo Finance Foundry Restructuring Report",
-      newsReport: "Intel Financial Report: Reported $16.6B quarterly restructuring & impairment charges alongside foundry operating losses; advise SELL / PUT."
+      newsReport: "Intel Financial Report: Reported $16.6B quarterly restructuring & impairment charges alongside foundry operating losses; advise SELL / PUT.",
+      sentimentDetail: "Overall Negative ($16.6B Impairment Charge & Foundry Losses)",
+      actionAdvice: "BUY INTC $50 PUT Option / SELL Long Equity (Delta -0.46)"
     },
     {
       ticker: "BA",
       tvSymbol: "NYSE:BA",
       company: "The Boeing Company",
-      stockPrice: 177.00,
-      changePct: 2.13,
-      contract: "BA $175 PUT (30D Bearish)",
+      stockPrice: 155.89,
+      changePct: -2.88,
+      contract: "BA $150 PUT (30D Bearish)",
       optionType: "PUT",
-      optionPremium: 6.10,
+      optionPremium: 5.50,
       iv: "38.9%",
       delta: "-0.47",
       advisory: "SELL",
       newsSource: "Yahoo Finance Aerospace & SEC Filing",
-      newsReport: "Boeing Financial Report: Commercial aircraft delivery delays and $18B+ equity dilution raise weigh on near-term EPS; advise SELL / PUT."
+      newsReport: "Boeing Financial Report: Commercial aircraft delivery delays and $18B+ equity dilution raise weigh on near-term EPS; advise SELL / PUT.",
+      sentimentDetail: "Overall Negative (Aircraft Delivery Delays & $18B+ Dilution)",
+      actionAdvice: "BUY BA $150 PUT Option / SELL Long Equity (Delta -0.47)"
     }
   ];
 
@@ -500,224 +556,252 @@
       tvSymbol: "CME_MINI:ES1!",
       name: "E-Mini S&P 500 Futures",
       exchange: "CME Globex • $50/pt",
-      price: 7697.00,
-      changePct: -0.30,
-      dayHigh: 7737.25,
-      dayLow: 7695.75,
+      price: 6935.00,
+      changePct: -3.64,
+      dayHigh: 7216.75,
+      dayLow: 6898.00,
       decimals: 2,
       prefix: "",
       advisory: "BUY",
       newsSource: "ForexFactory NFP + Yahoo S&P Earnings",
       newsHeadline: "US Non-Farm Payrolls (NFP) beat consensus (+227K) and S&P 500 blended EPS growth accelerates to +9.8% YoY.",
-      targetInvalidation: "Target: 7,820.00 | Stop: 7,610.00"
+      targetInvalidation: "Target: 7,060.00 | Stop: 6,850.00",
+      sentimentDetail: "Overall Positive (NFP +227K Beat & +9.8% Blended S&P EPS)",
+      actionAdvice: "LONG E-MINI S&P 500 (Target: 7,060.00 • Stop: 6,850.00)"
     },
     {
       symbol: "NQ=F",
       tvSymbol: "CME_MINI:NQ1!",
       name: "E-Mini Nasdaq-100 Futures",
       exchange: "CME Globex • $20/pt",
-      price: 28206.50,
-      changePct: -1.26,
-      dayHigh: 28668.50,
-      dayLow: 28180.00,
+      price: 25126.50,
+      changePct: -5.54,
+      dayHigh: 26603.50,
+      dayLow: 24976.50,
       decimals: 2,
       prefix: "",
       advisory: "BUY",
       newsSource: "Yahoo Finance Big Tech Earnings Wire",
       newsHeadline: "META, NVDA, MSFT, and AMZN financial reports confirm record AI infrastructure demand and operating margin expansion.",
-      targetInvalidation: "Target: 28,950.00 | Stop: 27,850.00"
+      targetInvalidation: "Target: 25,800.00 | Stop: 24,700.00",
+      sentimentDetail: "Overall Positive (Record Tech AI Infrastructure Capex)",
+      actionAdvice: "LONG E-MINI NASDAQ-100 (Target: 25,800.00 • Stop: 24,700.00)"
     },
     {
       symbol: "GC=F",
       tvSymbol: "COMEX:GC1!",
       name: "COMEX Gold 100 oz Futures",
       exchange: "COMEX • 100 troy oz",
-      price: 4123.50,
-      changePct: 1.24,
-      dayHigh: 4128.50,
-      dayLow: 4067.00,
+      price: 3515.40,
+      changePct: -4.62,
+      dayHigh: 3638.10,
+      dayLow: 3502.90,
       decimals: 2,
       prefix: "$",
       advisory: "BUY",
       newsSource: "ForexFactory CPI & FOMC Policy Wire",
       newsHeadline: "FOMC rate cut trajectory and sovereign central bank bullion purchases support institutional long positioning on COMEX.",
-      targetInvalidation: "Target: $4,210.00 | Stop: $4,060.00"
+      targetInvalidation: "Target: $3,590.00 | Stop: $3,460.00",
+      sentimentDetail: "Overall Positive (FOMC Easing Cycle & Sovereign Bullion Accumulation)",
+      actionAdvice: "LONG COMEX GOLD (Target: $3,590.00 • Stop: $3,460.00)"
     },
     {
       symbol: "YM=F",
       tvSymbol: "CBOT_MINI:YM1!",
       name: "E-Mini Dow ($5) Futures",
       exchange: "CBOT • $5/pt",
-      price: 53582.00,
-      changePct: 0.15,
-      dayHigh: 53640.00,
-      dayLow: 53518.00,
+      price: 48216.00,
+      changePct: -1.96,
+      dayHigh: 49656.00,
+      dayLow: 48054.00,
       decimals: 0,
       prefix: "",
       advisory: "BUY",
       newsSource: "ForexFactory US GDP & ISM Services PMI",
       newsHeadline: "ISM Services PMI expands to 56.0 while US financial and industrial blue-chips post strong guidance.",
-      targetInvalidation: "Target: 54,300 | Stop: 53,100"
+      targetInvalidation: "Target: 49,200 | Stop: 47,800",
+      sentimentDetail: "Overall Positive (ISM Services PMI 56.0 & Blue-Chip Earnings)",
+      actionAdvice: "LONG E-MINI DOW (Target: 49,200 • Stop: 47,800)"
     },
     {
       symbol: "RTY=F",
       tvSymbol: "CME_MINI:RTY1!",
       name: "E-Mini Russell 2000 Futures",
       exchange: "CME Globex • $50/pt",
-      price: 2866.10,
-      changePct: 0.01,
-      dayHigh: 2872.60,
-      dayLow: 2865.30,
+      price: 2587.40,
+      changePct: -2.85,
+      dayHigh: 2677.50,
+      dayLow: 2578.90,
       decimals: 2,
       prefix: "",
       advisory: "BUY",
       newsSource: "ForexFactory FOMC Rate Cut & Domestic GDP",
       newsHeadline: "Lower Federal Reserve policy rates directly reduce floating-rate debt servicing costs for US small- and mid-cap corporations.",
-      targetInvalidation: "Target: 2,940.00 | Stop: 2,815.00"
+      targetInvalidation: "Target: 2,660.00 | Stop: 2,530.00",
+      sentimentDetail: "Overall Positive (Lower Fed Rates Relieve Small-Cap Floating Debt)",
+      actionAdvice: "LONG RUSSELL 2000 (Target: 2,660.00 • Stop: 2,530.00)"
     },
     {
       symbol: "SI=F",
       tvSymbol: "COMEX:SI1!",
       name: "COMEX Silver 5,000 oz Futures",
       exchange: "COMEX • 5,000 troy oz",
-      price: 52.850,
-      changePct: 1.09,
-      dayHigh: 52.890,
-      dayLow: 52.275,
+      price: 41.070,
+      changePct: -7.41,
+      dayHigh: 43.180,
+      dayLow: 40.615,
       decimals: 3,
       prefix: "$",
       advisory: "BUY",
       newsSource: "Yahoo Finance Metals & Solar Supply Report",
       newsHeadline: "Silver Institute & Yahoo Finance report structural industrial deficit from solar PV & EV electronics demand.",
-      targetInvalidation: "Target: $55.000 | Stop: $51.400"
+      targetInvalidation: "Target: $43.200 | Stop: $39.800",
+      sentimentDetail: "Overall Positive (Solar PV & AI Electrical Structural Deficit)",
+      actionAdvice: "LONG COMEX SILVER (Target: $43.200 • Stop: $39.800)"
     },
     {
       symbol: "CL=F",
       tvSymbol: "NYMEX:CL1!",
       name: "WTI Light Sweet Crude Oil Futures",
       exchange: "NYMEX • 1,000 bbl",
-      price: 87.04,
-      changePct: -1.23,
-      dayHigh: 88.43,
-      dayLow: 87.01,
+      price: 83.41,
+      changePct: 1.18,
+      dayHigh: 84.07,
+      dayLow: 80.78,
       decimals: 2,
       prefix: "$",
       advisory: "SELL",
       newsSource: "ForexFactory EIA Crude Oil Inventories",
       newsHeadline: "EIA reports +2.4M barrel US crude inventory build alongside non-OPEC production growth in US Permian, Brazil, and Guyana.",
-      targetInvalidation: "Target: $84.00 | Stop: $89.10"
+      targetInvalidation: "Target: $80.50 | Stop: $85.50",
+      sentimentDetail: "Overall Negative (+2.4M Crude Build & Non-OPEC Production Surge)",
+      actionAdvice: "SHORT WTI CRUDE FUTURES (Target: $80.50 • Stop: $85.50)"
     },
     {
       symbol: "NG=F",
       tvSymbol: "NYMEX:NG1!",
       name: "Henry Hub Natural Gas Futures",
       exchange: "NYMEX • 10,000 MMBtu",
-      price: 2.936,
-      changePct: -0.78,
-      dayHigh: 2.952,
-      dayLow: 2.936,
+      price: 3.411,
+      changePct: 4.38,
+      dayHigh: 3.469,
+      dayLow: 3.151,
       decimals: 3,
       prefix: "$",
       advisory: "HOLD",
       newsSource: "ForexFactory EIA Natural Gas Storage",
       newsHeadline: "EIA weekly natural gas storage injection matched consensus (+32 Bcf); LNG export demand balanced by mild weather.",
-      targetInvalidation: "Range: $2.800 - $3.100"
+      targetInvalidation: "Range: $3.250 - $3.550",
+      sentimentDetail: "Balanced Report (In-Line +32 Bcf Storage Injection)",
+      actionAdvice: "HOLD / TRADE HENRY HUB RANGE ($3.250 - $3.550)"
     },
     {
       symbol: "ZN=F",
       tvSymbol: "CBOT:ZN1!",
       name: "10-Year US Treasury Note Futures",
       exchange: "CBOT • $100,000 Face",
-      price: 107.156,
-      changePct: 0.25,
-      dayHigh: 107.188,
-      dayLow: 106.859,
+      price: 106.844,
+      changePct: 0.91,
+      dayHigh: 106.891,
+      dayLow: 105.906,
       decimals: 3,
       prefix: "",
       advisory: "HOLD",
       newsSource: "ForexFactory US CPI & NFP Dual Mandate",
       newsHeadline: "In-line 2.6% YoY headline CPI balanced by resilient 227K NFP payrolls keeps 10Y Treasury Note futures anchored.",
-      targetInvalidation: "Range: 106.500 - 108.250"
+      targetInvalidation: "Range: 106.000 - 107.500",
+      sentimentDetail: "Balanced Report (Anchored 2.6% CPI vs Resilient 227K Payrolls)",
+      actionAdvice: "HOLD 10Y TREASURY NOTE (Range: 106.000 - 107.500)"
     },
     {
       symbol: "ZB=F",
       tvSymbol: "CBOT:ZB1!",
       name: "30-Year US Treasury Bond Futures",
       exchange: "CBOT • $100,000 Face",
-      price: 108.813,
-      changePct: 0.58,
-      dayHigh: 108.844,
-      dayLow: 108.219,
+      price: 107.625,
+      changePct: 1.26,
+      dayHigh: 107.844,
+      dayLow: 106.281,
       decimals: 3,
       prefix: "",
       advisory: "SELL",
       newsSource: "Yahoo Finance Treasury Auction & Deficit Wire",
       newsHeadline: "30-Year Treasury bond auction tail and term-premium repricing push long-duration yields higher; advise SELL on rallies.",
-      targetInvalidation: "Target: 106.500 | Stop: 110.000"
+      targetInvalidation: "Target: 109.500 | Stop: 106.200",
+      sentimentDetail: "Overall Negative (Treasury Auction Tail & Term Premium Rise)",
+      actionAdvice: "SELL 30Y TREASURY BOND RALLIES (Target: 109.500 • Stop: 106.200)"
     },
     {
       symbol: "6J=F",
       tvSymbol: "CME:6J1!",
       name: "Japanese Yen FX Futures (JPY/USD)",
       exchange: "CME Globex • ¥12.5M",
-      price: 0.00635,
-      changePct: 0.36,
-      dayHigh: 0.00635,
-      dayLow: 0.00633,
+      price: 0.00632,
+      changePct: 0.78,
+      dayHigh: 0.00632,
+      dayLow: 0.00627,
       decimals: 5,
       prefix: "$",
       advisory: "SELL",
       newsSource: "ForexFactory BoJ Policy & US NFP Report",
       newsHeadline: "Bank of Japan holds ultra-low policy rates while strong US NFP payrolls keep USD/JPY carry favoring long USD / short 6J=F.",
-      targetInvalidation: "Target: $0.00622 | Stop: $0.00645"
+      targetInvalidation: "Target: $0.00620 | Stop: $0.00640",
+      sentimentDetail: "Overall Negative (BoJ 0.25% Low Rates vs US Yield Premium)",
+      actionAdvice: "SHORT CME JAPANESE YEN (Target: $0.00620 • Stop: $0.00640)"
     },
     {
       symbol: "6E=F",
       tvSymbol: "CME:6E1!",
       name: "Euro FX Futures (EUR/USD)",
       exchange: "CME Globex • €125,000",
-      price: 1.1271,
-      changePct: 0.26,
-      dayHigh: 1.1275,
-      dayLow: 1.1247,
+      price: 1.0980,
+      changePct: -0.04,
+      dayHigh: 1.1011,
+      dayLow: 1.0967,
       decimals: 4,
       prefix: "$",
       advisory: "SELL",
       newsSource: "ForexFactory ECB Rate Decision & PMI Wire",
       newsHeadline: "European Central Bank dovish rate cut guidance and weak German industrial output weigh on Euro FX futures.",
-      targetInvalidation: "Target: $1.1140 | Stop: $1.1350"
+      targetInvalidation: "Target: $1.0850 | Stop: $1.1080",
+      sentimentDetail: "Overall Negative (ECB Rate Cuts & German Factory Contraction)",
+      actionAdvice: "SHORT CME EURO FX (Target: $1.0850 • Stop: $1.1080)"
     },
     {
       symbol: "BTC=F",
       tvSymbol: "CME:BTC1!",
       name: "CME Bitcoin Reference Futures",
       exchange: "CME Globex • 5 BTC",
-      price: 80550.00,
-      changePct: 0.27,
-      dayHigh: 81185.00,
-      dayLow: 80465.00,
+      price: 56310.00,
+      changePct: -3.42,
+      dayHigh: 59200.00,
+      dayLow: 55585.00,
       decimals: 2,
       prefix: "$",
       advisory: "BUY",
       newsSource: "Yahoo Finance CME Open Interest Report",
       newsHeadline: "CME Bitcoin futures open interest reaches institutional high as asset managers expand macro crypto allocations.",
-      targetInvalidation: "Target: $85,000 | Stop: $78,500"
+      targetInvalidation: "Target: $59,000 | Stop: $54,500",
+      sentimentDetail: "Overall Positive (CME Open Interest Record & Institutional Inflows)",
+      actionAdvice: "LONG CME BITCOIN FUTURES (Target: $59,000 • Stop: $54,500)"
     },
     {
       symbol: "HG=F",
       tvSymbol: "COMEX:HG1!",
       name: "COMEX High-Grade Copper Futures",
       exchange: "COMEX • 25,000 lbs",
-      price: 6.396,
-      changePct: -0.52,
-      dayHigh: 6.429,
-      dayLow: 6.386,
+      price: 5.485,
+      changePct: -2.64,
+      dayHigh: 5.608,
+      dayLow: 5.439,
       decimals: 3,
       prefix: "$",
       advisory: "BUY",
       newsSource: "Yahoo Finance AI Grid & Electrification Wire",
       newsHeadline: "AI data center power transformer buildouts and high-voltage grid upgrades tighten global refined copper inventories.",
-      targetInvalidation: "Target: $6.650 | Stop: $6.220"
+      targetInvalidation: "Target: $5.750 | Stop: $5.320",
+      sentimentDetail: "Overall Positive (AI Grid Upgrades & Refined Copper Supply Deficit)",
+      actionAdvice: "LONG HIGH-GRADE COPPER (Target: $5.750 • Stop: $5.320)"
     }
   ];
 
@@ -917,7 +1001,7 @@
     return `<span class="wb-adv-pill adv-hold">◆ BALANCED • HOLD</span>`;
   }
 
-  function getAdvisoryBadgeHtml(advisory, sentimentDetail, actionAdvice, subDetail) {
+  function getAdvisoryBadgeHtml(advisory, sentimentDetail, actionAdvice, subDetail, symbolKey) {
     const adv = (advisory || "HOLD").toUpperCase();
     let sentimentClass = "adv-hold";
     let sentimentIcon = "◆";
@@ -944,7 +1028,7 @@
         <span class="wb-adv-pill ${sentimentClass}">
           ${sentimentIcon} ${detail} → <strong>${action}</strong>
         </span>
-        ${subDetail ? `<div class="advisory-action-detail">${subDetail}</div>` : ""}
+        ${subDetail ? `<div class="advisory-action-detail" ${symbolKey ? `data-advice-detail="${symbolKey}"` : ""}>${subDetail}</div>` : ""}
       </div>
     `;
   }
@@ -1006,6 +1090,148 @@
       ...FUTURES_DATA.map(f => f.tvSymbol)
     ])
   );
+
+  function recalculateAdviceForLivePrices() {
+    // 1. Recalculate CFDs
+    CFDS_DATA.forEach(cfd => {
+      const p = cfd.price;
+      if (!p || isNaN(p)) return;
+      const dec = cfd.decimals !== undefined ? cfd.decimals : 2;
+      const pfx = cfd.prefix || "";
+      const isBuy = cfd.advisory === "BUY";
+      const isSell = cfd.advisory === "SELL";
+
+      if (isBuy) {
+        const lowEntry = formatPrice(p * 0.996, dec, pfx);
+        const highEntry = formatPrice(p * 1.002, dec, pfx);
+        const tp = formatPrice(p * 1.025, dec, pfx);
+        const sl = formatPrice(p * 0.985, dec, pfx);
+        cfd.entryZone = `${lowEntry} - ${highEntry}`;
+        cfd.takeProfit = tp;
+        cfd.stopLoss = sl;
+        cfd.actionAdvice = `BUY DIPS (${cfd.entryZone} zone) • Target: ${tp}`;
+      } else if (isSell) {
+        const lowEntry = formatPrice(p * 0.998, dec, pfx);
+        const highEntry = formatPrice(p * 1.004, dec, pfx);
+        const tp = formatPrice(p * 0.975, dec, pfx);
+        const sl = formatPrice(p * 1.015, dec, pfx);
+        cfd.entryZone = `${lowEntry} - ${highEntry}`;
+        cfd.takeProfit = tp;
+        cfd.stopLoss = sl;
+        cfd.actionAdvice = `SELL RALLIES (${cfd.entryZone}) • Target: ${tp}`;
+      } else {
+        const lowRange = formatPrice(p * 0.990, dec, pfx);
+        const highRange = formatPrice(p * 1.010, dec, pfx);
+        cfd.entryZone = `${lowRange} - ${highRange}`;
+        cfd.actionAdvice = `HOLD RANGE (${cfd.entryZone})`;
+      }
+
+      document.querySelectorAll(`[data-advice-action="${cfd.symbol}"]`).forEach(el => {
+        el.innerHTML = `<strong>Actionable Advice:</strong> ${cfd.actionAdvice}`;
+      });
+      document.querySelectorAll(`[data-advice-detail="${cfd.symbol}"]`).forEach(el => {
+        el.innerHTML = `<strong>Execution:</strong> ${cfd.entryZone} • <strong>Target:</strong> ${cfd.takeProfit}`;
+      });
+    });
+
+    // 2. Recalculate Options
+    OPTIONS_DATA.forEach(opt => {
+      const p = opt.stockPrice;
+      if (!p || isNaN(p)) return;
+      const isBuy = opt.advisory === "BUY";
+      const isSell = opt.advisory === "SELL";
+      const isNeutral = opt.advisory === "HOLD";
+      const roundStep = p > 200 ? 5 : (p > 50 ? 5 : 1);
+
+      if (isBuy) {
+        const strike = Math.ceil((p * 1.012) / roundStep) * roundStep;
+        opt.contract = `${opt.ticker} $${strike} CALL (30D Exp)`;
+        opt.actionAdvice = `BUY ${opt.ticker} $${strike} CALL Option (30D Exp, Delta +0.52)`;
+      } else if (isSell) {
+        const strike = Math.floor((p * 0.988) / roundStep) * roundStep;
+        opt.contract = `${opt.ticker} $${strike} PUT (30D Bearish)`;
+        opt.actionAdvice = `BUY ${opt.ticker} $${strike} PUT Option / SELL Equity (Delta -0.46)`;
+      } else if (isNeutral) {
+        const lowerStrike = Math.floor((p * 0.97) / roundStep) * roundStep;
+        const upperStrike = Math.ceil((p * 1.03) / roundStep) * roundStep;
+        if (opt.ticker === "AAPL") {
+          opt.contract = `AAPL $${lowerStrike}/$${upperStrike} IRON CONDOR`;
+          opt.actionAdvice = `HOLD / TRADE AAPL $${lowerStrike}/$${upperStrike} IRON CONDOR (Delta 0.02)`;
+        } else if (opt.ticker === "AMD") {
+          const midStrike = Math.round(p / roundStep) * roundStep;
+          opt.contract = `AMD $${midStrike} STRADDLE (Neutral)`;
+          opt.actionAdvice = `HOLD / TRADE AMD $${midStrike} STRADDLE (IV ${opt.iv}, Delta 0.05)`;
+        } else {
+          opt.contract = `${opt.ticker} $${lowerStrike}/$${upperStrike} RANGE COLLAR`;
+          opt.actionAdvice = `HOLD / TRADE ${opt.ticker} $${lowerStrike}/$${upperStrike} RANGE COLLAR (Delta -0.04)`;
+        }
+      }
+
+      document.querySelectorAll(`[data-advice-action="${opt.ticker}"]`).forEach(el => {
+        el.innerHTML = `<strong>Options Action:</strong> ${opt.actionAdvice}`;
+      });
+      document.querySelectorAll(`[data-advice-detail="${opt.ticker}"]`).forEach(el => {
+        el.innerHTML = `<strong>Contract:</strong> ${opt.contract} • <strong>Premium:</strong> $${opt.optionPremium.toFixed(2)}`;
+      });
+      document.querySelectorAll(`[data-live-contract="${opt.ticker}"]`).forEach(el => {
+        el.textContent = opt.contract;
+      });
+      document.querySelectorAll(`[data-table-contract="${opt.ticker}"]`).forEach(el => {
+        el.textContent = opt.contract;
+      });
+    });
+
+    // 3. Recalculate Futures
+    FUTURES_DATA.forEach(fut => {
+      const p = fut.price;
+      if (!p || isNaN(p)) return;
+      const dec = fut.decimals !== undefined ? fut.decimals : 2;
+      const pfx = fut.prefix || "";
+      const isBuy = fut.advisory === "BUY";
+      const isSell = fut.advisory === "SELL";
+
+      if (isBuy) {
+        const tp = formatPrice(p * 1.020, dec, pfx);
+        const sl = formatPrice(p * 0.985, dec, pfx);
+        fut.targetInvalidation = `Target: ${tp} | Stop: ${sl}`;
+        fut.actionAdvice = `LONG ${fut.symbol} (Target: ${tp} • Stop: ${sl})`;
+      } else if (isSell) {
+        const tp = formatPrice(p * 0.975, dec, pfx);
+        const sl = formatPrice(p * 1.015, dec, pfx);
+        fut.targetInvalidation = `Target: ${tp} | Stop: ${sl}`;
+        fut.actionAdvice = `SHORT ${fut.symbol} (Target: ${tp} • Stop: ${sl})`;
+      } else {
+        const lowR = formatPrice(p * 0.990, dec, pfx);
+        const highR = formatPrice(p * 1.010, dec, pfx);
+        fut.targetInvalidation = `Range: ${lowR} - ${highR}`;
+        fut.actionAdvice = `HOLD POSITION (Range: ${lowR} - ${highR})`;
+      }
+
+      document.querySelectorAll(`[data-advice-action="${fut.symbol}"]`).forEach(el => {
+        el.innerHTML = `<strong>Futures Advisory:</strong> ${fut.actionAdvice}`;
+      });
+      document.querySelectorAll(`[data-advice-detail="${fut.symbol}"]`).forEach(el => {
+        el.innerHTML = `<strong>Target / Invalidation:</strong> ${fut.targetInvalidation}`;
+      });
+    });
+
+    // 4. Update Bento mini cards
+    const goldCfd = CFDS_DATA.find(c => c.symbol === "XAUUSD");
+    if (goldCfd) {
+      const foot = document.getElementById("strip-foot-XAUUSD");
+      if (foot) foot.innerHTML = `CPI Cooling → <strong class="txt-buy">BUY DIPS (${goldCfd.entryZone})</strong>`;
+    }
+    const btcCfd = CFDS_DATA.find(c => c.symbol === "BTCUSD");
+    if (btcCfd) {
+      const foot = document.getElementById("strip-foot-BTCUSD");
+      if (foot) foot.innerHTML = `Spot Inflows → <strong class="txt-buy">ACCUMULATE LONG (${btcCfd.entryZone})</strong>`;
+    }
+    const usdjpyCfd = CFDS_DATA.find(c => c.symbol === "USDJPY");
+    if (usdjpyCfd) {
+      const foot = document.getElementById("strip-foot-USDJPY");
+      if (foot) foot.innerHTML = `NFP Jobs Beat → <strong class="txt-buy">BUY PAIR (CARRY ${usdjpyCfd.entryZone})</strong>`;
+    }
+  }
 
   async function fetchLiveTradingViewQuotes() {
     try {
@@ -1079,6 +1305,8 @@
         }
       });
 
+      recalculateAdviceForLivePrices();
+
       const syncLabel = document.getElementById("last-price-sync-label");
       if (syncLabel) {
         syncLabel.textContent = "LIVE (" + new Date().toISOString().slice(11, 19) + " UTC)";
@@ -1122,6 +1350,38 @@
   function analyzeFinancialNewsHeadline(headlineText) {
     const text = (headlineText || "").trim();
     const lower = text.toLowerCase();
+
+    const metaObj = (typeof OPTIONS_DATA !== "undefined" && OPTIONS_DATA.find(o => o.ticker === 'META')) || { stockPrice: 560.84 };
+    const metaP = metaObj.stockPrice;
+    const metaCallStrike = Math.ceil((metaP * 1.01) / 5) * 5;
+    const metaPutStrike = Math.floor((metaP * 0.99) / 5) * 5;
+
+    const nvdaObj = (typeof OPTIONS_DATA !== "undefined" && OPTIONS_DATA.find(o => o.ticker === 'NVDA')) || { stockPrice: 125.53 };
+    const nvdaP = nvdaObj.stockPrice;
+    const nvdaCallStrike = Math.ceil((nvdaP * 1.02) / 5) * 5;
+    const nvdaPutStrike = Math.floor((nvdaP * 0.98) / 5) * 5;
+
+    const spyObj = (typeof OPTIONS_DATA !== "undefined" && OPTIONS_DATA.find(o => o.ticker === 'SPY')) || { stockPrice: 689.81 };
+    const spyP = spyObj.stockPrice;
+    const spyCallStrike = Math.ceil((spyP * 1.01) / 5) * 5;
+    const spyPutStrike = Math.floor((spyP * 0.99) / 5) * 5;
+
+    const gldObj = (typeof OPTIONS_DATA !== "undefined" && OPTIONS_DATA.find(o => o.ticker === 'GLD')) || { stockPrice: 322.87 };
+    const gldCallStrike = Math.ceil((gldObj.stockPrice * 1.01) / 5) * 5;
+
+    const xauObj = (typeof CFDS_DATA !== "undefined" && CFDS_DATA.find(c => c.symbol === 'XAUUSD')) || { price: 3538.19 };
+    const xauZone = `$${Math.round(xauObj.price * 0.996)}-$${Math.round(xauObj.price * 1.002)}`;
+
+    const btcObj = (typeof CFDS_DATA !== "undefined" && CFDS_DATA.find(c => c.symbol === 'BTCUSD')) || { price: 56111.90 };
+    const btcZone = `$${Math.round(btcObj.price * 0.995 / 100) * 100}-$${Math.round(btcObj.price * 1.003 / 100) * 100}`;
+
+    const intcObj = (typeof OPTIONS_DATA !== "undefined" && OPTIONS_DATA.find(o => o.ticker === 'INTC')) || { stockPrice: 51.28 };
+    const intcPutStrike = Math.floor(intcObj.stockPrice * 0.98);
+
+    const baObj = (typeof OPTIONS_DATA !== "undefined" && OPTIONS_DATA.find(o => o.ticker === 'BA')) || { stockPrice: 155.89 };
+    const baPutStrike = Math.floor((baObj.stockPrice * 0.98) / 5) * 5;
+
+    const oilObj = (typeof CFDS_DATA !== "undefined" && CFDS_DATA.find(c => c.symbol === 'WTIUSD')) || { price: 83.41 };
 
     let detectedSymbol = "BROAD MACRO (ES=F / XAUUSD / SPY)";
     let cfdAction = "BUY XAUUSD & NAS100 CFD on pullbacks";
@@ -1174,9 +1434,9 @@
         verdict = "SELL";
         advisoryTitle = "▼ ADVISE: SELL META / BUY PUT PROTECTION";
         advisoryBadge = "▼ OVERALL NEGATIVE → SELL";
-        actionAdvice = "SELL / BUY $610 PUT (30D)";
+        actionAdvice = `SELL / BUY $${metaPutStrike} PUT (30D)`;
         cfdAction = "SELL NAS100 CFD; cut equity long exposure";
-        optionAction = "SELL META Shares / BUY META $610 PUT Options";
+        optionAction = `SELL META Shares / BUY META $${metaPutStrike} PUT Options`;
         futureAction = "SHORT NQ=F Nasdaq-100 Futures on rallies";
         rationale = "Financial report indicates an earnings or guidance miss for Meta Platforms; adverse financial metrics strictly advise SELL / Put hedging.";
       } else if (holdScore > bullScore) {
@@ -1186,7 +1446,7 @@
         verdict = "HOLD";
         advisoryTitle = "◆ ADVISE: HOLD META / TRADE RANGE";
         advisoryBadge = "◆ BALANCED REPORT → HOLD";
-        actionAdvice = "HOLD / TRADE $610-$650 IRON CONDOR";
+        actionAdvice = `HOLD / TRADE $${metaPutStrike}-$${metaCallStrike} IRON CONDOR`;
         cfdAction = "HOLD existing NAS100 CFD exposure";
         optionAction = "HOLD neutral Iron Condor volatility spread";
         futureAction = "HOLD core NQ=F Futures allocation";
@@ -1198,9 +1458,9 @@
         verdict = "BUY";
         advisoryTitle = "▲ ADVISE: BUY META CALL OPTIONS & LONG CFDs";
         advisoryBadge = "▲ OVERALL POSITIVE → BUY";
-        actionAdvice = "BUY $635 CALL (30D) • Delta: +0.54";
+        actionAdvice = `BUY $${metaCallStrike} CALL (30D) • Delta: +0.54`;
         cfdAction = "BUY NAS100 & US500 CFDs on pullbacks";
-        optionAction = "BUY META $635 CALL Option (30D Expiry, Delta +0.54)";
+        optionAction = `BUY META $${metaCallStrike} CALL Option (30D Expiry, Delta +0.54)`;
         futureAction = "BUY NQ=F E-Mini Nasdaq-100 Front-Month Futures";
         rationale = "META quarterly earnings beat consensus by +14.2% on EPS and +19% YoY revenue, driven by AI Reels ad monetization; financial news strategy advises immediate BUY.";
       }
@@ -1213,9 +1473,9 @@
         verdict = "SELL";
         advisoryTitle = "▼ ADVISE: SELL NVDA / BUY PUT OPTIONS";
         advisoryBadge = "▼ OVERALL NEGATIVE → SELL";
-        actionAdvice = "SELL LONG / BUY $190 PUT (30D)";
+        actionAdvice = `SELL LONG / BUY $${nvdaPutStrike} PUT (30D)`;
         cfdAction = "SELL / REDUCE NAS100 CFD exposure";
-        optionAction = "BUY NVDA $190 PUT Option";
+        optionAction = `BUY NVDA $${nvdaPutStrike} PUT Option`;
         futureAction = "SELL / HEDGE NQ=F E-Mini Nasdaq-100 Futures";
         rationale = "Adverse semiconductor headline indicates supply bottlenecks or margin contraction; news strategy advises defensive SELL.";
       } else {
@@ -1225,9 +1485,9 @@
         verdict = "BUY";
         advisoryTitle = "▲ ADVISE: BUY NVDA CALLS & TECH FUTURES";
         advisoryBadge = "▲ OVERALL POSITIVE → BUY";
-        actionAdvice = "BUY $205 CALL (30D) • Delta: +0.51";
+        actionAdvice = `BUY $${nvdaCallStrike} CALL (30D) • Delta: +0.51`;
         cfdAction = "BUY NAS100 CFD on momentum";
-        optionAction = "BUY NVDA $205 CALL Option (30D Expiry)";
+        optionAction = `BUY NVDA $${nvdaCallStrike} CALL Option (30D Expiry)`;
         futureAction = "BUY NQ=F E-Mini Nasdaq-100 Futures";
         rationale = "Hyperscaler AI data center capex & Blackwell GPU demand report is strongly bullish; advise BUY on NVDA Calls and Nasdaq Futures.";
       }
@@ -1241,8 +1501,8 @@
         advisoryTitle = "▲ ADVISE: BUY GOLD (XAUUSD), BITCOIN & TECH CALLS";
         advisoryBadge = "▲ OVERALL POSITIVE → BUY";
         actionAdvice = "BUY XAUUSD & BTCUSD CFDs";
-        cfdAction = "BUY XAUUSD ($3,870-$3,885 zone) & BTCUSD CFDs";
-        optionAction = "BUY SPY $770 CALL & GLD $375 CALL Options";
+        cfdAction = `BUY XAUUSD (${xauZone} zone) & BTCUSD CFDs`;
+        optionAction = `BUY SPY $${spyCallStrike} CALL & GLD $${gldCallStrike} CALL Options`;
         futureAction = "BUY GC=F Gold & NQ=F Nasdaq Futures";
         rationale = "Cooler-than-expected US CPI inflation increases Federal Reserve rate cut probability, driving a strong BUY signal for Gold (XAUUSD), Bitcoin (BTCUSD), and Tech Futures.";
       } else if (lower.includes("hot") || lower.includes("above forecast") || lower.includes("spike") || bearScore > bullScore) {
@@ -1254,7 +1514,7 @@
         advisoryBadge = "▼ OVERALL NEGATIVE → SELL";
         actionAdvice = "BUY USDJPY / SHORT EQUITIES";
         cfdAction = "BUY USDJPY CFD | SELL XAUUSD & NAS100 Short-Term";
-        optionAction = "BUY SPY PUT / SELL Tech Calls";
+        optionAction = `BUY SPY $${spyPutStrike} PUT / SELL Tech Calls`;
         futureAction = "SELL ES=F, NQ=F & ZN=F 10Y Note Futures";
         rationale = "Hotter-than-expected CPI print reprices Fed rate expectations hawkishly, pressuring equities and bonds (SELL).";
       } else {
@@ -1307,7 +1567,7 @@
       advisoryBadge = "▼ OVERALL NEGATIVE → SELL";
       actionAdvice = "SELL LONG / BUY PROTECTIVE PUTS";
       cfdAction = "HOLD / Hedge US30 CFD";
-      optionAction = lower.includes("intc") ? "BUY INTC $57 PUT Option" : "BUY BA $175 PUT Option";
+      optionAction = lower.includes("intc") ? `BUY INTC $${intcPutStrike} PUT Option` : `BUY BA $${baPutStrike} PUT Option`;
       futureAction = "Long NQ=F vs Short Legacy Industrials";
       rationale = "Adverse corporate financial report (earnings miss, restructuring charge, or delivery delay); news strategy strictly advises SELL / Put Options.";
     } else if (lower.includes("aapl") || lower.includes("apple") || lower.includes("amd") || holdScore >= 3) {
@@ -1332,7 +1592,7 @@
         verdict = "SELL";
         advisoryTitle = "▼ ADVISE: SELL WTI CRUDE / SHORT OIL CFDs";
         advisoryBadge = "▼ OVERALL NEGATIVE → SELL";
-        actionAdvice = "SELL RALLIES / SHORT (Target: $66.80)";
+        actionAdvice = `SELL RALLIES / SHORT (Target: $${(oilObj.price * 0.965).toFixed(2)})`;
         cfdAction = "SELL WTIUSD CFD on resistance";
         optionAction = "BUY Energy Sector Put Options";
         futureAction = "SELL CL=F Front-Month Crude Futures";
@@ -1344,7 +1604,7 @@
         verdict = "BUY";
         advisoryTitle = "▲ ADVISE: BUY WTI CRUDE / LONG ENERGY CFDs";
         advisoryBadge = "▲ OVERALL POSITIVE → BUY";
-        actionAdvice = "BUY DIPS (Target: $74.50)";
+        actionAdvice = `BUY DIPS (Target: $${(oilObj.price * 1.025).toFixed(2)})`;
         cfdAction = "BUY WTIUSD CFD on support";
         optionAction = "BUY XLE / Energy Call Options";
         futureAction = "BUY CL=F Front-Month Futures";
@@ -1790,7 +2050,7 @@
 
             <div class="wb-advice-banner ${bannerClass}">
               <div class="banner-sentiment"><strong>News Sentiment:</strong> ${sentText}</div>
-              <div class="banner-action"><strong>Actionable Advice:</strong> ${actionText}</div>
+              <div class="banner-action" data-advice-action="${item.symbol}"><strong>Actionable Advice:</strong> ${actionText}</div>
             </div>
 
             <div class="wb-card-news-box">
@@ -1836,7 +2096,8 @@
                 item.advisory,
                 item.sentimentDetail || (item.advisory === "BUY" ? "OVERALL POSITIVE" : item.advisory === "SELL" ? "OVERALL NEGATIVE" : "BALANCED REPORT"),
                 item.actionAdvice || (item.advisory === "BUY" ? "BUY DIPS" : item.advisory === "SELL" ? "SELL RALLIES" : "HOLD RANGE"),
-                `<strong>Execution:</strong> ${item.entryZone} • <strong>Target:</strong> ${item.takeProfit}`
+                `<strong>Execution:</strong> ${item.entryZone} • <strong>Target:</strong> ${item.takeProfit}`,
+                item.symbol
               )}
             </td>
             <td style="max-width:420px;">
@@ -1886,7 +2147,7 @@
               <div>
                 <div class="wb-card-symbol">${item.ticker}</div>
                 <div class="wb-card-name">${item.company} (${item.tvSymbol})</div>
-                <span class="wb-card-tag">${item.contract}</span>
+                <span class="wb-card-tag" data-live-contract="${item.ticker}">${item.contract}</span>
               </div>
               ${getCompactAdvisoryBadge(item.advisory)}
             </div>
@@ -1906,7 +2167,7 @@
 
             <div class="wb-advice-banner ${bannerClass}">
               <div class="banner-sentiment"><strong>News Sentiment:</strong> ${sentText}</div>
-              <div class="banner-action"><strong>Options Action:</strong> ${actionText}</div>
+              <div class="banner-action" data-advice-action="${item.ticker}"><strong>Options Action:</strong> ${actionText}</div>
             </div>
 
             <div class="wb-card-news-box">
@@ -1943,7 +2204,7 @@
             </td>
             <td><span class="wb-card-price" style="font-size:15px;" data-live-price="${item.ticker}">${formatPrice(item.stockPrice, 2, "$")}</span></td>
             <td><span class="mini-delta ${isUp ? 'delta-up' : 'delta-down'}" data-live-chg="${item.ticker}">${isUp ? '+' : ''}${item.changePct.toFixed(2)}%</span></td>
-            <td><span class="wb-card-tag">${item.contract}</span></td>
+            <td><span class="wb-card-tag" data-live-contract="${item.ticker}">${item.contract}</span></td>
             <td style="font-family:var(--font-mono); font-weight:800;" data-live-opt="${item.ticker}">$${item.optionPremium.toFixed(2)}</td>
             <td style="font-family:var(--font-mono); font-size:11.5px;">IV: ${item.iv} • Δ: ${item.delta}</td>
             <td>
@@ -1951,7 +2212,8 @@
                 item.advisory,
                 item.sentimentDetail || (item.advisory === "BUY" ? "OVERALL POSITIVE" : item.advisory === "SELL" ? "OVERALL NEGATIVE" : "BALANCED REPORT"),
                 item.actionAdvice || (item.advisory === "BUY" ? `BUY ${item.optionType}S` : item.advisory === "SELL" ? `BUY ${item.optionType}S` : "HOLD / NEUTRAL"),
-                `<strong>Contract:</strong> ${item.contract} • <strong>Premium:</strong> $${item.optionPremium.toFixed(2)}`
+                `<strong>Contract:</strong> ${item.contract} • <strong>Premium:</strong> $${item.optionPremium.toFixed(2)}`,
+                item.ticker
               )}
             </td>
             <td style="max-width:420px;">
@@ -2012,7 +2274,7 @@
 
             <div class="wb-advice-banner ${bannerClass}">
               <div class="banner-sentiment"><strong>News Sentiment:</strong> ${sentText}</div>
-              <div class="banner-action"><strong>Futures Advisory:</strong> ${actionText}</div>
+              <div class="banner-action" data-advice-action="${item.symbol}"><strong>Futures Advisory:</strong> ${actionText}</div>
             </div>
 
             <div class="wb-card-news-box">
@@ -2058,7 +2320,8 @@
                 item.advisory,
                 item.sentimentDetail || (item.advisory === "BUY" ? "OVERALL POSITIVE" : item.advisory === "SELL" ? "OVERALL NEGATIVE" : "BALANCED REPORT"),
                 item.actionAdvice || (item.advisory === "BUY" ? "GO LONG CONTRACT" : item.advisory === "SELL" ? "SHORT CONTRACT" : "HOLD POSITION"),
-                `<strong>Target / Invalidation:</strong> ${item.targetInvalidation}`
+                `<strong>Target / Invalidation:</strong> ${item.targetInvalidation}`,
+                item.symbol
               )}
             </td>
             <td style="max-width:420px;">
@@ -2341,77 +2604,7 @@
   }
 
   function enrichInitialDatasets() {
-    CFDS_DATA.forEach(item => {
-      const isBuy = item.advisory === "BUY";
-      const isSell = item.advisory === "SELL";
-      if (!item.sentiment) item.sentiment = isBuy ? "POSITIVE" : isSell ? "NEGATIVE" : "NEUTRAL";
-      if (!item.sentimentDetail) {
-        if (item.symbol === "XAUUSD") item.sentimentDetail = "Overall Positive (Cooling CPI & Sovereign Gold Buying)";
-        else if (item.symbol === "BTCUSD") item.sentimentDetail = "Overall Positive (Net Institutional Spot ETF Inflows)";
-        else if (item.symbol === "USDJPY") item.sentimentDetail = "Overall Positive (US NFP Yield Premium Widening vs BoJ)";
-        else if (item.symbol === "EURUSD") item.sentimentDetail = "Overall Negative (Eurozone PMI Weakness & Dovish ECB)";
-        else if (item.symbol === "WTIUSD") item.sentimentDetail = "Overall Negative (+2.4M Barrel US Commercial Crude Build)";
-        else item.sentimentDetail = isBuy ? "Overall Positive (Bullish Catalyst)" : isSell ? "Overall Negative (Bearish Headwind)" : "Balanced / Neutral Report";
-      }
-      if (!item.actionAdvice) {
-        if (item.symbol === "XAUUSD") item.actionAdvice = "BUY DIPS ($3,870 - $3,885 zone) • Target: $3,950.00";
-        else if (item.symbol === "BTCUSD") item.actionAdvice = "BUY SPOT CFD ($64,800 - $65,400) • Target: $68,500";
-        else if (item.symbol === "USDJPY") item.actionAdvice = "BUY CARRY PAIR (159.400 - 159.750) • Target: 161.500";
-        else if (item.symbol === "EURUSD") item.actionAdvice = "SELL EURUSD RALLIES (1.0845 - 1.0865) • Target: 1.0750";
-        else if (item.symbol === "WTIUSD") item.actionAdvice = "SELL WTIUSD RALLIES ($87.00 - $87.60) • Target: $84.20";
-        else item.actionAdvice = isBuy ? `BUY DIPS (${item.entryZone}) → Target: ${item.takeProfit}` : isSell ? `SELL RALLIES (Cut: ${item.stopLoss}) → Target: ${item.takeProfit}` : `HOLD (Range: ${item.entryZone})`;
-      }
-    });
-
-    OPTIONS_DATA.forEach(item => {
-      const isBuy = item.advisory === "BUY";
-      const isSell = item.advisory === "SELL";
-      if (!item.sentiment) item.sentiment = isBuy ? "POSITIVE" : isSell ? "NEGATIVE" : "NEUTRAL";
-      if (!item.sentimentDetail) {
-        if (item.ticker === "META") item.sentimentDetail = "Overall Positive (Q4 EPS Beat +14.2% & Ad Growth +19% YoY)";
-        else if (item.ticker === "NVDA") item.sentimentDetail = "Overall Positive (Blackwell B200 GPUs Booked Out 12 Months)";
-        else if (item.ticker === "SPY") item.sentimentDetail = "Overall Positive (Resilient 227K NFP & Controlled 0.3% CPI)";
-        else if (item.ticker === "AAPL") item.sentimentDetail = "Balanced Report (Record Services $24.97B vs Steady Hardware)";
-        else if (item.ticker === "AMD") item.sentimentDetail = "Balanced Report (Data Center +122% vs In-Line Revenue Guide)";
-        else if (item.ticker === "INTC") item.sentimentDetail = "Overall Negative ($16.6B Impairment Charge & Foundry Loss)";
-        else if (item.ticker === "BA") item.sentimentDetail = "Overall Negative (Aircraft Delivery Delays & $18B+ Dilution)";
-        else item.sentimentDetail = isBuy ? "Overall Positive (Earnings / Growth Beat)" : isSell ? "Overall Negative (Operating Miss / Headwind)" : "Balanced / In-Line Consensus";
-      }
-      if (!item.actionAdvice) {
-        if (item.ticker === "META") item.actionAdvice = "BUY META $635 CALL Option (30D Exp, Delta +0.54)";
-        else if (item.ticker === "NVDA") item.actionAdvice = "BUY NVDA $205 CALL Option (30D Exp, Delta +0.51)";
-        else if (item.ticker === "SPY") item.actionAdvice = "BUY SPY $770 CALL Option (14D Macro Exp, Delta +0.49)";
-        else if (item.ticker === "AAPL") item.actionAdvice = "HOLD / TRADE AAPL $345/$355 IRON CONDOR (Delta 0.02)";
-        else if (item.ticker === "AMD") item.actionAdvice = "HOLD / TRADE AMD $490 STRADDLE (IV 44.0%, Delta 0.05)";
-        else if (item.ticker === "INTC") item.actionAdvice = "BUY INTC $57 PUT Option / SELL Long Equity (Delta -0.46)";
-        else if (item.ticker === "BA") item.actionAdvice = "BUY BA $175 PUT Option / SELL Long Equity (Delta -0.47)";
-        else item.actionAdvice = isBuy ? `BUY CALLS (${item.contract})` : isSell ? `BUY PUTS (${item.contract})` : `HOLD / TRADE RANGE (IV: ${item.iv})`;
-      }
-    });
-
-    FUTURES_DATA.forEach(item => {
-      const isBuy = item.advisory === "BUY";
-      const isSell = item.advisory === "SELL";
-      if (!item.sentiment) item.sentiment = isBuy ? "POSITIVE" : isSell ? "NEGATIVE" : "NEUTRAL";
-      if (!item.sentimentDetail) {
-        if (item.symbol === "ES=F") item.sentimentDetail = "Overall Positive (NFP +227K Beat & +9.8% Blended S&P EPS)";
-        else if (item.symbol === "NQ=F") item.sentimentDetail = "Overall Positive (Record Tech AI Infrastructure Capex)";
-        else if (item.symbol === "GC=F") item.sentimentDetail = "Overall Positive (FOMC Easing Cycle & Central Bank Buying)";
-        else if (item.symbol === "CL=F") item.sentimentDetail = "Overall Negative (+2.4M Crude Build & Non-OPEC Production Surge)";
-        else if (item.symbol === "6J=F") item.sentimentDetail = "Overall Negative (BoJ 0.25% Low Rates vs US Yield Premium)";
-        else if (item.symbol === "6E=F") item.sentimentDetail = "Overall Negative (ECB Rate Cuts & German Factory Contraction)";
-        else item.sentimentDetail = isBuy ? "Overall Positive (Bullish Macro Flow)" : isSell ? "Overall Negative (Supply Drag / Contraction)" : "Neutral / In-Line Flow";
-      }
-      if (!item.actionAdvice) {
-        if (item.symbol === "ES=F") item.actionAdvice = "LONG E-MINI S&P 500 (Target: 7,820.00 • Stop: 7,610.00)";
-        else if (item.symbol === "NQ=F") item.actionAdvice = "LONG E-MINI NASDAQ-100 (Target: 28,950.00 • Stop: 27,850.00)";
-        else if (item.symbol === "GC=F") item.actionAdvice = "LONG COMEX GOLD (Target: $4,210.00 • Stop: $4,060.00)";
-        else if (item.symbol === "CL=F") item.actionAdvice = "SHORT WTI CRUDE FUTURES (Target: $84.00 • Stop: $89.10)";
-        else if (item.symbol === "6J=F") item.actionAdvice = "SHORT CME JAPANESE YEN (Target: $0.00622 • Stop: $0.00645)";
-        else if (item.symbol === "6E=F") item.actionAdvice = "SHORT CME EURO FX (Target: $1.1140 • Stop: $1.1350)";
-        else item.actionAdvice = isBuy ? `LONG CONTRACT (${item.targetInvalidation || 'Target: Higher'})` : isSell ? `SHORT / EXIT (${item.targetInvalidation || 'Downside'})` : `HOLD CORE POSITION (${item.symbol})`;
-      }
-    });
+    recalculateAdviceForLivePrices();
   }
 
   function enrichInitialNewsItems() {
