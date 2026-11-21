@@ -1109,6 +1109,138 @@ body.wb-dark .wb-switch-pill input:checked + .wb-switch-slider::after {
   border: 1.5px solid var(--hold-border);
 }
 
+/* Rich Actionable Advisory Blocks (Explicit Sentiment & Directional Execution) */
+.wb-advisory-block {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.advisory-action-detail {
+  font-size: 11px;
+  font-family: var(--font-sans);
+  color: var(--text-body);
+  line-height: 1.35;
+  margin-top: 2px;
+}
+
+.advisory-action-detail strong {
+  font-family: var(--font-mono);
+  font-size: 10.5px;
+}
+
+/* Card Advice Banners (Contextual Guidance in Bento Desk Cards) */
+.wb-advice-banner {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: var(--radius-md);
+  font-size: 11.5px;
+  line-height: 1.4;
+  border: 1px solid var(--border-hairline);
+}
+
+.banner-buy {
+  background: var(--buy-bg);
+  border-color: var(--buy-border);
+}
+.banner-buy .banner-sentiment { color: var(--text-main); font-weight: 700; margin-bottom: 2px; }
+.banner-buy .banner-action { color: #047857; font-weight: 800; }
+
+.banner-sell {
+  background: var(--sell-bg);
+  border-color: var(--sell-border);
+}
+.banner-sell .banner-sentiment { color: var(--text-main); font-weight: 700; margin-bottom: 2px; }
+.banner-sell .banner-action { color: #b91c1c; font-weight: 800; }
+
+.banner-hold {
+  background: var(--hold-bg);
+  border-color: var(--hold-border);
+}
+.banner-hold .banner-sentiment { color: var(--text-main); font-weight: 700; margin-bottom: 2px; }
+.banner-hold .banner-action { color: #b45309; font-weight: 800; }
+
+/* News Sentiment Pills & Comprehensive Execution Boxes */
+.sentiment-pill {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  font-weight: 800;
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  letter-spacing: 0.04em;
+  white-space: nowrap;
+}
+
+.sentiment-pos {
+  background: var(--buy-bg);
+  color: var(--buy-fg);
+  border: 1px solid var(--buy-border);
+}
+
+.sentiment-neg {
+  background: var(--sell-bg);
+  color: var(--sell-fg);
+  border: 1px solid var(--sell-border);
+}
+
+.sentiment-neu {
+  background: var(--hold-bg);
+  color: var(--hold-fg);
+  border: 1px solid var(--hold-border);
+}
+
+.news-wire-recommendation-box {
+  margin: 12px 0 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-hairline);
+  font-size: 12px;
+}
+
+.rec-pos {
+  background: rgba(16, 185, 129, 0.07);
+  border-color: rgba(52, 211, 153, 0.45);
+}
+
+.rec-neg {
+  background: rgba(239, 68, 68, 0.07);
+  border-color: rgba(248, 113, 113, 0.45);
+}
+
+.rec-neu {
+  background: rgba(245, 158, 11, 0.07);
+  border-color: rgba(251, 191, 36, 0.45);
+}
+
+.rec-headline {
+  font-size: 12.5px;
+  font-weight: 800;
+  margin-bottom: 6px;
+  color: var(--text-main);
+  letter-spacing: -0.01em;
+}
+
+.rec-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-body);
+  margin-bottom: 6px;
+}
+
+.rec-item strong {
+  color: var(--text-main);
+}
+
+.rec-rationale {
+  font-size: 11.5px;
+  color: var(--text-muted);
+  border-top: 1px solid rgba(128, 128, 128, 0.18);
+  padding-top: 6px;
+}
+
 /* Card Price Display */
 .wb-card-price-strip {
   display: flex;

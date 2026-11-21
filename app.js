@@ -906,15 +906,47 @@
     return `${prefix}${formatted}`;
   }
 
-  function getAdvisoryBadgeHtml(advisory) {
+  function getCompactAdvisoryBadge(advisory) {
     const adv = (advisory || "HOLD").toUpperCase();
     if (adv.includes("BUY")) {
-      return `<span class="wb-adv-pill adv-buy">▲ BUY</span>`;
+      return `<span class="wb-adv-pill adv-buy">▲ POSITIVE • BUY</span>`;
     }
     if (adv.includes("SELL")) {
-      return `<span class="wb-adv-pill adv-sell">▼ SELL</span>`;
+      return `<span class="wb-adv-pill adv-sell">▼ NEGATIVE • SELL</span>`;
     }
-    return `<span class="wb-adv-pill adv-hold">◆ HOLD</span>`;
+    return `<span class="wb-adv-pill adv-hold">◆ BALANCED • HOLD</span>`;
+  }
+
+  function getAdvisoryBadgeHtml(advisory, sentimentDetail, actionAdvice, subDetail) {
+    const adv = (advisory || "HOLD").toUpperCase();
+    let sentimentClass = "adv-hold";
+    let sentimentIcon = "◆";
+    let sentimentLabel = "BALANCED REPORT";
+    let defaultAction = "HOLD / RANGE-BOUND";
+
+    if (adv.includes("BUY")) {
+      sentimentClass = "adv-buy";
+      sentimentIcon = "▲";
+      sentimentLabel = "OVERALL POSITIVE";
+      defaultAction = "BUY / ACCUMULATE";
+    } else if (adv.includes("SELL")) {
+      sentimentClass = "adv-sell";
+      sentimentIcon = "▼";
+      sentimentLabel = "OVERALL NEGATIVE";
+      defaultAction = "SELL / HEDGE";
+    }
+
+    const detail = sentimentDetail || sentimentLabel;
+    const action = actionAdvice || defaultAction;
+
+    return `
+      <div class="wb-advisory-block">
+        <span class="wb-adv-pill ${sentimentClass}">
+          ${sentimentIcon} ${detail} → <strong>${action}</strong>
+        </span>
+        ${subDetail ? `<div class="advisory-action-detail">${subDetail}</div>` : ""}
+      </div>
+    `;
   }
 
   // =========================================================================
@@ -1092,25 +1124,37 @@
     const lower = text.toLowerCase();
 
     let detectedSymbol = "BROAD MACRO (ES=F / XAUUSD / SPY)";
-    let cfdAction = "BUY XAUUSD & NAS100 CFD";
-    let optionAction = "BUY SPY / QQQ CALL Options";
-    let futureAction = "BUY ES=F & NQ=F Futures";
+    let cfdAction = "BUY XAUUSD & NAS100 CFD on pullbacks";
+    let optionAction = "BUY SPY / QQQ CALL Options (30D Exp, Delta > 0.45)";
+    let futureAction = "BUY ES=F & NQ=F Front-Month Futures";
     let verdict = "BUY";
+    let sentiment = "POSITIVE";
+    let sentimentLabel = "OVERALL POSITIVE (BULLISH CATALYST)";
+    let sentimentDetail = "Overall Positive (Bullish Catalyst)";
+    let advisoryTitle = "▲ ADVISE: BUY / ACCUMULATE LONG EXPOSURE";
+    let advisoryBadge = "▲ OVERALL POSITIVE → BUY";
+    let actionAdvice = "BUY CALLS / ACCUMULATE LONG";
     let rationale = "";
 
     const bullishWords = [
-      "beat", "beats", "surges", "surge", "jumps", "soars", "raises guidance",
-      "record", "sold out", "strong", "inflows", "rate cut", "cools",
-      "cooling", "upgrade", "expands", "expansion", "bullish", "profit rises"
+      "beat", "beats", "beating", "surges", "surge", "jumps", "jump", "soars", "soar",
+      "raises guidance", "raised guidance", "boosts outlook", "record", "sold out",
+      "strong", "inflows", "inflow", "rate cut", "rate cuts", "cools", "cooling",
+      "upgrade", "upgrades", "expands", "expansion", "bullish", "profit rises",
+      "profit surge", "double beat", "accelerates", "accelerating", "outperforms",
+      "etf inflows", "cash flow beat", "margin expansion", "buyback"
     ];
     const bearishWords = [
-      "miss", "misses", "cuts guidance", "slashes", "slumps", "drops",
-      "falls", "losses", "restructuring", "delay", "delays", "inventory build",
-      "contraction", "contracts", "downgrade", "bearish", "hotter cpi"
+      "miss", "misses", "missing", "cuts guidance", "cut guidance", "slashes", "slumps",
+      "slump", "drops", "drop", "falls", "fall", "losses", "loss", "restructuring",
+      "impairment", "charge", "delay", "delays", "inventory build", "contraction",
+      "contracts", "downgrade", "downgrades", "bearish", "hotter cpi", "hot cpi",
+      "inflation spike", "rate hike", "hawkish", "subpoena", "lawsuit", "layoffs",
+      "margin compression", "free cash flow burn", "warning", "warns"
     ];
     const holdWords = [
-      "in line", "in-line", "mixed", "unchanged", "steady", "awaits",
-      "neutral", "balanced", "matches consensus"
+      "in line", "in-line", "mixed", "unchanged", "steady", "awaits", "awaiting",
+      "neutral", "balanced", "matches consensus", "flat", "pause", "holds steady"
     ];
 
     let bullScore = 0;
@@ -1124,88 +1168,221 @@
     if (lower.includes("meta")) {
       detectedSymbol = "NASDAQ:META (Meta Platforms)";
       if (bearScore > bullScore) {
+        sentiment = "NEGATIVE";
+        sentimentLabel = "OVERALL NEGATIVE (BEARISH HEADWIND)";
+        sentimentDetail = "Overall Negative (Guidance / Margin Miss)";
         verdict = "SELL";
-        cfdAction = "SELL NAS100 CFD";
-        optionAction = "SELL META / BUY META $610 PUT";
-        futureAction = "SELL NQ=F Nasdaq Futures";
-        rationale = "Financial report indicates an earnings or guidance miss for Meta Platforms; news strategy advises immediate SELL.";
+        advisoryTitle = "▼ ADVISE: SELL META / BUY PUT PROTECTION";
+        advisoryBadge = "▼ OVERALL NEGATIVE → SELL";
+        actionAdvice = "SELL / BUY $610 PUT (30D)";
+        cfdAction = "SELL NAS100 CFD; cut equity long exposure";
+        optionAction = "SELL META Shares / BUY META $610 PUT Options";
+        futureAction = "SHORT NQ=F Nasdaq-100 Futures on rallies";
+        rationale = "Financial report indicates an earnings or guidance miss for Meta Platforms; adverse financial metrics strictly advise SELL / Put hedging.";
       } else if (holdScore > bullScore) {
+        sentiment = "NEUTRAL";
+        sentimentLabel = "BALANCED / IN-LINE REPORT";
+        sentimentDetail = "Balanced Report (In-Line Consensus)";
         verdict = "HOLD";
-        cfdAction = "HOLD NAS100 CFD";
-        optionAction = "HOLD META Iron Condor";
-        futureAction = "HOLD NQ=F Futures";
-        rationale = "META financial report is in line with consensus without a directional surprise; advise HOLD.";
+        advisoryTitle = "◆ ADVISE: HOLD META / TRADE RANGE";
+        advisoryBadge = "◆ BALANCED REPORT → HOLD";
+        actionAdvice = "HOLD / TRADE $610-$650 IRON CONDOR";
+        cfdAction = "HOLD existing NAS100 CFD exposure";
+        optionAction = "HOLD neutral Iron Condor volatility spread";
+        futureAction = "HOLD core NQ=F Futures allocation";
+        rationale = "META financial report metrics match consensus estimates without a decisive beat or miss; advise HOLD.";
       } else {
+        sentiment = "POSITIVE";
+        sentimentLabel = "OVERALL POSITIVE (BULLISH CATALYST)";
+        sentimentDetail = "Overall Positive (Q3 Earnings Double Beat)";
         verdict = "BUY";
-        cfdAction = "BUY NAS100 & US500 CFDs";
-        optionAction = "BUY META $635 CALL Option (30D)";
-        futureAction = "BUY NQ=F E-Mini Nasdaq-100 Futures";
-        rationale = "META earnings report shows strong EPS/revenue growth and AI advertising monetization beat; financial news strategy advises BUY.";
+        advisoryTitle = "▲ ADVISE: BUY META CALL OPTIONS & LONG CFDs";
+        advisoryBadge = "▲ OVERALL POSITIVE → BUY";
+        actionAdvice = "BUY $635 CALL (30D) • Delta: +0.54";
+        cfdAction = "BUY NAS100 & US500 CFDs on pullbacks";
+        optionAction = "BUY META $635 CALL Option (30D Expiry, Delta +0.54)";
+        futureAction = "BUY NQ=F E-Mini Nasdaq-100 Front-Month Futures";
+        rationale = "META quarterly earnings beat consensus by +14.2% on EPS and +19% YoY revenue, driven by AI Reels ad monetization; financial news strategy advises immediate BUY.";
       }
     } else if (lower.includes("nvda") || lower.includes("nvidia") || lower.includes("blackwell")) {
       detectedSymbol = "NASDAQ:NVDA (NVIDIA Corp)";
-      verdict = bearScore > bullScore ? "SELL" : "BUY";
-      cfdAction = `${verdict} NAS100 CFD`;
-      optionAction = verdict === "BUY" ? "BUY NVDA $205 CALL Option" : "BUY NVDA $190 PUT Option";
-      futureAction = `${verdict} NQ=F & ES=F Futures`;
-      rationale = "Hyperscaler AI data center capex & Blackwell GPU demand report is strongly bullish; advise BUY on NVDA Calls and Nasdaq Futures.";
-    } else if (lower.includes("cpi") || lower.includes("inflation")) {
-      detectedSymbol = "US CPI Inflation Release (ForexFactory)";
-      if (lower.includes("cool") || lower.includes("below forecast") || lower.includes("2.4%")) {
-        verdict = "BUY";
-        cfdAction = "BUY XAUUSD (Gold) & BUY BTCUSD CFDs";
-        optionAction = "BUY SPY $770 CALL & GLD $375 CALL";
-        futureAction = "BUY GC=F (Gold) & BUY NQ=F Futures";
-        rationale = "Cooler-than-expected US CPI inflation increases Federal Reserve rate cut probability, driving a strong BUY signal for Gold (XAUUSD), Bitcoin (BTCUSD), and Tech Futures.";
-      } else if (lower.includes("hot") || lower.includes("above forecast")) {
+      if (bearScore > bullScore) {
+        sentiment = "NEGATIVE";
+        sentimentLabel = "OVERALL NEGATIVE (SUPPLY / DEMAND HEADWIND)";
+        sentimentDetail = "Overall Negative (Supply Delay / Margin Miss)";
         verdict = "SELL";
+        advisoryTitle = "▼ ADVISE: SELL NVDA / BUY PUT OPTIONS";
+        advisoryBadge = "▼ OVERALL NEGATIVE → SELL";
+        actionAdvice = "SELL LONG / BUY $190 PUT (30D)";
+        cfdAction = "SELL / REDUCE NAS100 CFD exposure";
+        optionAction = "BUY NVDA $190 PUT Option";
+        futureAction = "SELL / HEDGE NQ=F E-Mini Nasdaq-100 Futures";
+        rationale = "Adverse semiconductor headline indicates supply bottlenecks or margin contraction; news strategy advises defensive SELL.";
+      } else {
+        sentiment = "POSITIVE";
+        sentimentLabel = "OVERALL POSITIVE (RECORD AI DEMAND)";
+        sentimentDetail = "Overall Positive (Blackwell Sold Out 12M)";
+        verdict = "BUY";
+        advisoryTitle = "▲ ADVISE: BUY NVDA CALLS & TECH FUTURES";
+        advisoryBadge = "▲ OVERALL POSITIVE → BUY";
+        actionAdvice = "BUY $205 CALL (30D) • Delta: +0.51";
+        cfdAction = "BUY NAS100 CFD on momentum";
+        optionAction = "BUY NVDA $205 CALL Option (30D Expiry)";
+        futureAction = "BUY NQ=F E-Mini Nasdaq-100 Futures";
+        rationale = "Hyperscaler AI data center capex & Blackwell GPU demand report is strongly bullish; advise BUY on NVDA Calls and Nasdaq Futures.";
+      }
+    } else if (lower.includes("cpi") || lower.includes("inflation") || lower.includes("pce")) {
+      detectedSymbol = "US CPI / Inflation Macro Wire";
+      if (lower.includes("cool") || lower.includes("below forecast") || lower.includes("slows") || lower.includes("controlled") || bullScore > bearScore) {
+        sentiment = "POSITIVE";
+        sentimentLabel = "OVERALL POSITIVE (COOLING INFLATION)";
+        sentimentDetail = "Overall Positive (Cooler Inflation / Rate Easing)";
+        verdict = "BUY";
+        advisoryTitle = "▲ ADVISE: BUY GOLD (XAUUSD), BITCOIN & TECH CALLS";
+        advisoryBadge = "▲ OVERALL POSITIVE → BUY";
+        actionAdvice = "BUY XAUUSD & BTCUSD CFDs";
+        cfdAction = "BUY XAUUSD ($3,870-$3,885 zone) & BTCUSD CFDs";
+        optionAction = "BUY SPY $770 CALL & GLD $375 CALL Options";
+        futureAction = "BUY GC=F Gold & NQ=F Nasdaq Futures";
+        rationale = "Cooler-than-expected US CPI inflation increases Federal Reserve rate cut probability, driving a strong BUY signal for Gold (XAUUSD), Bitcoin (BTCUSD), and Tech Futures.";
+      } else if (lower.includes("hot") || lower.includes("above forecast") || lower.includes("spike") || bearScore > bullScore) {
+        sentiment = "NEGATIVE";
+        sentimentLabel = "OVERALL NEGATIVE (HOT INFLATION RISK)";
+        sentimentDetail = "Overall Negative (Inflation Re-Acceleration)";
+        verdict = "SELL";
+        advisoryTitle = "▼ ADVISE: SELL EQUITIES / BUY USDJPY & USD";
+        advisoryBadge = "▼ OVERALL NEGATIVE → SELL";
+        actionAdvice = "BUY USDJPY / SHORT EQUITIES";
         cfdAction = "BUY USDJPY CFD | SELL XAUUSD & NAS100 Short-Term";
         optionAction = "BUY SPY PUT / SELL Tech Calls";
         futureAction = "SELL ES=F, NQ=F & ZN=F 10Y Note Futures";
         rationale = "Hotter-than-expected CPI print reprices Fed rate expectations hawkishly, pressuring equities and bonds (SELL).";
       } else {
-        verdict = "BUY";
-        cfdAction = "BUY XAUUSD & US500 CFDs";
+        sentiment = "NEUTRAL";
+        sentimentLabel = "BALANCED / IN-LINE INFLATION PRINT";
+        sentimentDetail = "Balanced Report (In-Line CPI)";
+        verdict = "HOLD";
+        advisoryTitle = "◆ ADVISE: HOLD CURRENT ALLOCATIONS";
+        advisoryBadge = "◆ BALANCED REPORT → HOLD";
+        actionAdvice = "HOLD / DEFINE EQUILIBRIUM RANGE";
+        cfdAction = "HOLD XAUUSD & US500 CFDs";
         optionAction = "BUY SPY & META CALL Options";
         futureAction = "BUY ES=F & GC=F Futures";
         rationale = "Controlled CPI print removes inflation tail-risk, supporting risk assets and Gold (BUY).";
       }
-    } else if (lower.includes("nfp") || lower.includes("payroll") || lower.includes("jobs")) {
+    } else if (lower.includes("nfp") || lower.includes("payroll") || lower.includes("jobs") || lower.includes("employment")) {
       detectedSymbol = "US Non-Farm Payrolls (NFP — ForexFactory)";
-      verdict = "BUY";
-      cfdAction = "BUY USDJPY CFD & BUY US500 CFD";
-      optionAction = "BUY SPY $770 CALL Options";
-      futureAction = "BUY ES=F & YM=F Futures | SELL 6J=F Yen";
-      rationale = "Strong NFP jobs beat confirms US economic expansion and lifts US Treasury yields relative to Japan, generating a strong BUY signal on USDJPY and S&P 500 Futures.";
+      if (bearScore > bullScore || lower.includes("unemployment jumps") || lower.includes("labor miss")) {
+        sentiment = "NEGATIVE";
+        sentimentLabel = "OVERALL NEGATIVE (LABOR WEAKNESS)";
+        sentimentDetail = "Overall Negative (Employment Contraction)";
+        verdict = "SELL";
+        advisoryTitle = "▼ ADVISE: SELL CYCLICALS / BUY SAFE-HAVEN BONDS";
+        advisoryBadge = "▼ OVERALL NEGATIVE → SELL";
+        actionAdvice = "SELL US500 / BUY TREASURY BONDS";
+        cfdAction = "SELL US500 & GER40 CFDs";
+        optionAction = "BUY SPY PUT Options";
+        futureAction = "BUY ZB=F 30Y Bond Futures | SHORT ES=F";
+        rationale = "Weaker-than-expected US labor print highlights economic deceleration; advisory recommends defensive hedging via PUT options.";
+      } else {
+        sentiment = "POSITIVE";
+        sentimentLabel = "OVERALL POSITIVE (RESILIENT LABOR EXPANSION)";
+        sentimentDetail = "Overall Positive (Strong Jobs Beat)";
+        verdict = "BUY";
+        advisoryTitle = "▲ ADVISE: BUY USDJPY & S&P 500 FUTURES";
+        advisoryBadge = "▲ OVERALL POSITIVE → BUY";
+        actionAdvice = "BUY USDJPY & ES1! FUTURES";
+        cfdAction = "BUY USDJPY CFD & BUY US500 CFD";
+        optionAction = "BUY SPY $770 CALL Options";
+        futureAction = "BUY ES=F & YM=F Futures | SELL 6J=F Yen";
+        rationale = "Strong NFP jobs beat confirms US economic expansion and lifts US Treasury yields relative to Japan, generating a strong BUY signal on USDJPY and S&P 500 Futures.";
+      }
     } else if (lower.includes("intc") || lower.includes("intel") || lower.includes("boeing") || lower.includes("ba ")) {
       detectedSymbol = lower.includes("intc") || lower.includes("intel") ? "NASDAQ:INTC (Intel Corp)" : "NYSE:BA (Boeing Co)";
+      sentiment = "NEGATIVE";
+      sentimentLabel = "OVERALL NEGATIVE (OPERATING RESTRUCTURING & LOSSES)";
+      sentimentDetail = "Overall Negative (Restructuring & Cash Drag)";
       verdict = "SELL";
+      advisoryTitle = "▼ ADVISE: SELL EQUITY / BUY PUT OPTIONS";
+      advisoryBadge = "▼ OVERALL NEGATIVE → SELL";
+      actionAdvice = "SELL LONG / BUY PROTECTIVE PUTS";
       cfdAction = "HOLD / Hedge US30 CFD";
-      optionAction = `SELL Equity / BUY PUT Option`;
+      optionAction = lower.includes("intc") ? "BUY INTC $57 PUT Option" : "BUY BA $175 PUT Option";
       futureAction = "Long NQ=F vs Short Legacy Industrials";
       rationale = "Adverse corporate financial report (earnings miss, restructuring charge, or delivery delay); news strategy strictly advises SELL / Put Options.";
     } else if (lower.includes("aapl") || lower.includes("apple") || lower.includes("amd") || holdScore >= 3) {
       detectedSymbol = lower.includes("aapl") ? "NASDAQ:AAPL (Apple Inc)" : "Balanced Financial Report";
+      sentiment = "NEUTRAL";
+      sentimentLabel = "BALANCED REPORT (IN-LINE EARNINGS)";
+      sentimentDetail = "Balanced Report (In-Line Consensus)";
       verdict = "HOLD";
+      advisoryTitle = "◆ ADVISE: HOLD CORE POSITIONS / WAIT FOR BREAKOUT";
+      advisoryBadge = "◆ BALANCED REPORT → HOLD";
+      actionAdvice = "HOLD / TRADE IRON CONDOR RANGE";
       cfdAction = "HOLD Existing CFD Exposure";
       optionAction = "HOLD / Neutral Iron Condor Strategy";
       futureAction = "HOLD ES=F & NQ=F Core Positions";
       rationale = "Financial report metrics are in-line with consensus without a decisive beat or miss; strategy advises HOLD.";
+    } else if (lower.includes("oil") || lower.includes("crude") || lower.includes("cl=f") || lower.includes("wti") || lower.includes("petroleum")) {
+      detectedSymbol = "NYMEX:CL1! (WTI Crude Oil)";
+      if (bearScore > bullScore || lower.includes("inventory build") || lower.includes("lower oil")) {
+        sentiment = "NEGATIVE";
+        sentimentLabel = "OVERALL NEGATIVE (SUPPLY SURPLUS HEADWIND)";
+        sentimentDetail = "Overall Negative (Commercial Crude Build)";
+        verdict = "SELL";
+        advisoryTitle = "▼ ADVISE: SELL WTI CRUDE / SHORT OIL CFDs";
+        advisoryBadge = "▼ OVERALL NEGATIVE → SELL";
+        actionAdvice = "SELL RALLIES / SHORT (Target: $66.80)";
+        cfdAction = "SELL WTIUSD CFD on resistance";
+        optionAction = "BUY Energy Sector Put Options";
+        futureAction = "SELL CL=F Front-Month Crude Futures";
+        rationale = "Commercial inventory surplus and refining run rate softness advise downside positioning; news strategy advises SELL.";
+      } else {
+        sentiment = "POSITIVE";
+        sentimentLabel = "OVERALL POSITIVE (OPEC+ DISCIPLINE)";
+        sentimentDetail = "Overall Positive (Supply Tightening)";
+        verdict = "BUY";
+        advisoryTitle = "▲ ADVISE: BUY WTI CRUDE / LONG ENERGY CFDs";
+        advisoryBadge = "▲ OVERALL POSITIVE → BUY";
+        actionAdvice = "BUY DIPS (Target: $74.50)";
+        cfdAction = "BUY WTIUSD CFD on support";
+        optionAction = "BUY XLE / Energy Call Options";
+        futureAction = "BUY CL=F Front-Month Futures";
+        rationale = "OPEC+ voluntary supply discipline and expanding seasonal transportation demand advise BUY.";
+      }
     } else {
       if (bearScore > bullScore) {
+        sentiment = "NEGATIVE";
+        sentimentLabel = "OVERALL NEGATIVE (BEARISH HEADWIND)";
+        sentimentDetail = "Overall Negative (Bearish Catalyst)";
         verdict = "SELL";
+        advisoryTitle = "▼ ADVISE: SELL ASSET / HEDGE WITH PUTS";
+        advisoryBadge = "▼ OVERALL NEGATIVE → SELL";
+        actionAdvice = "SELL / REDUCE LONG EXPOSURE";
         cfdAction = "SELL High-Beta Index & Commodity CFDs";
         optionAction = "BUY Protective PUT Options";
         futureAction = "SELL ES=F / CL=F Futures";
         rationale = "Negative financial news catalyst detected in headline; macro news strategy advises SELL.";
       } else if (holdScore > bullScore) {
+        sentiment = "NEUTRAL";
+        sentimentLabel = "BALANCED / IN-LINE REPORT";
+        sentimentDetail = "Balanced Report (Neutral)";
         verdict = "HOLD";
+        advisoryTitle = "◆ ADVISE: HOLD / DEFINE EQUILIBRIUM RANGE";
+        advisoryBadge = "◆ BALANCED REPORT → HOLD";
+        actionAdvice = "HOLD / TRADE RANGE-BOUND";
         cfdAction = "HOLD Current CFD Positions";
         optionAction = "HOLD Neutral Volatility Spreads";
         futureAction = "HOLD Futures Allocation";
         rationale = "Neutral or in-line news report detected; macro news strategy advises HOLD.";
       } else {
+        sentiment = "POSITIVE";
+        sentimentLabel = "OVERALL POSITIVE (BULLISH CATALYST)";
+        sentimentDetail = "Overall Positive (Bullish Catalyst)";
         verdict = "BUY";
+        advisoryTitle = "▲ ADVISE: BUY / ACCUMULATE LONG EXPOSURE";
+        advisoryBadge = "▲ OVERALL POSITIVE → BUY";
+        actionAdvice = "BUY DIPS / ACCUMULATE CALLS";
         cfdAction = "BUY XAUUSD, BTCUSD & NAS100 CFDs";
         optionAction = "BUY META, NVDA & SPY CALL Options";
         futureAction = "BUY ES=F, NQ=F & GC=F Futures";
@@ -1213,19 +1390,33 @@
       }
     }
 
-    return { headline: text, detectedSymbol, verdict, cfdAction, optionAction, futureAction, rationale };
+    return {
+      headline: text,
+      detectedSymbol,
+      sentiment,
+      sentimentLabel,
+      sentimentDetail,
+      verdict,
+      advisoryTitle,
+      advisoryBadge,
+      actionAdvice,
+      cfdAction,
+      optionAction,
+      futureAction,
+      rationale
+    };
   }
 
   window.evaluateCustomNewsHeadline = function (text) {
     if (!text) return;
     const analysis = analyzeFinancialNewsHeadline(text);
-    showToast(`Signal: ${analysis.verdict} (${analysis.detectedSymbol}) — ${analysis.rationale}`);
+    showToast(`[${analysis.sentimentLabel}] ${analysis.advisoryTitle} — ${analysis.rationale}`);
   };
 
   window.loadSampleNews = function (sampleText) {
     if (!sampleText) return;
     const analysis = analyzeFinancialNewsHeadline(sampleText);
-    showToast(`Signal: ${analysis.verdict} (${analysis.detectedSymbol}) — ${analysis.rationale}`);
+    showToast(`[${analysis.sentimentLabel}] ${analysis.advisoryTitle} | CFDs: ${analysis.cfdAction} | Options: ${analysis.optionAction}`);
   };
 
   // =========================================================================
@@ -1289,7 +1480,16 @@
       title: breaking.title,
       snippet: breaking.snippet,
       url: breaking.url,
-      advisory: breaking.advisory || analysis.verdict,
+      advisory: analysis.verdict,
+      sentiment: analysis.sentiment,
+      sentimentLabel: analysis.sentimentLabel,
+      sentimentDetail: analysis.sentimentDetail,
+      advisoryTitle: analysis.advisoryTitle,
+      advisoryBadge: analysis.advisoryBadge,
+      cfdAction: analysis.cfdAction,
+      optionAction: analysis.optionAction,
+      futureAction: analysis.futureAction,
+      rationale: analysis.rationale,
       affectedDesks: `${analysis.cfdAction} • ${analysis.optionAction}`
     };
 
@@ -1370,6 +1570,15 @@
           snippet: cleanSnippet || analysis.rationale,
           url: item.link || "https://finance.yahoo.com",
           advisory: analysis.verdict,
+          sentiment: analysis.sentiment,
+          sentimentLabel: analysis.sentimentLabel,
+          sentimentDetail: analysis.sentimentDetail,
+          advisoryTitle: analysis.advisoryTitle,
+          advisoryBadge: analysis.advisoryBadge,
+          cfdAction: analysis.cfdAction,
+          optionAction: analysis.optionAction,
+          futureAction: analysis.futureAction,
+          rationale: analysis.rationale,
           affectedDesks: `${analysis.cfdAction} • ${analysis.optionAction}`
         };
       });
@@ -1521,12 +1730,13 @@
     ribbon.innerHTML = ribbonAssets.map(item => {
       const isUp = item.chg >= 0;
       const advCls = item.adv === "BUY" ? "adv-buy" : (item.adv === "SELL" ? "adv-sell" : "adv-hold");
+      const advLabel = item.adv === "BUY" ? "▲ POSITIVE • BUY" : (item.adv === "SELL" ? "▼ NEGATIVE • SELL" : "◆ BALANCED • HOLD");
       return `
         <div class="ticker-item" onclick="loadTradingViewChart('${item.tv}', '${item.sym} Live TradingView Feed')">
           <span class="ticker-sym">${item.sym}</span>
           <span class="ticker-val" data-live-price="${item.sym}">${item.price}</span>
           <span class="${isUp ? 'ticker-chg-up' : 'ticker-chg-down'}" data-live-chg="${item.sym}">${isUp ? '+' : ''}${item.chg.toFixed(2)}%</span>
-          <span class="ticker-mini-adv ${advCls}">${item.adv}</span>
+          <span class="ticker-mini-adv ${advCls}">${advLabel}</span>
         </div>
       `;
     }).join("");
@@ -1554,6 +1764,12 @@
     if (cardsEl) {
       cardsEl.innerHTML = filtered.map(item => {
         const isUp = item.changePct >= 0;
+        const isBuy = item.advisory === "BUY";
+        const isSell = item.advisory === "SELL";
+        const bannerClass = isBuy ? "banner-buy" : isSell ? "banner-sell" : "banner-hold";
+        const sentText = item.sentimentDetail || (isBuy ? "Overall Positive (Bullish Catalyst)" : isSell ? "Overall Negative (Bearish Headwind)" : "Balanced / Neutral");
+        const actionText = item.actionAdvice || (isBuy ? `BUY DIPS (${item.entryZone}) → Target: ${item.takeProfit}` : isSell ? `SELL RALLIES (Cut: ${item.stopLoss}) → Target: ${item.takeProfit}` : `HOLD (Range: ${item.entryZone})`);
+
         return `
           <article class="wb-asset-card">
             <div class="wb-card-top">
@@ -1562,7 +1778,7 @@
                 <div class="wb-card-name">${item.name}</div>
                 <span class="wb-card-tag">TV: ${item.tvSymbol}</span>
               </div>
-              ${getAdvisoryBadgeHtml(item.advisory)}
+              ${getCompactAdvisoryBadge(item.advisory)}
             </div>
 
             <div class="wb-card-price-strip">
@@ -1570,6 +1786,11 @@
               <span class="mini-delta ${isUp ? 'delta-up' : 'delta-down'}" data-live-chg="${item.symbol}">
                 ${isUp ? '+' : ''}${item.changePct.toFixed(2)}%
               </span>
+            </div>
+
+            <div class="wb-advice-banner ${bannerClass}">
+              <div class="banner-sentiment"><strong>News Sentiment:</strong> ${sentText}</div>
+              <div class="banner-action"><strong>Actionable Advice:</strong> ${actionText}</div>
             </div>
 
             <div class="wb-card-news-box">
@@ -1610,7 +1831,14 @@
             <td style="font-family:var(--font-mono); font-size:11.5px;">
               H: ${formatPrice(item.dayHigh, item.decimals, item.prefix)}<br/>L: ${formatPrice(item.dayLow, item.decimals, item.prefix)}
             </td>
-            <td>${getAdvisoryBadgeHtml(item.advisory)}</td>
+            <td>
+              ${getAdvisoryBadgeHtml(
+                item.advisory,
+                item.sentimentDetail || (item.advisory === "BUY" ? "OVERALL POSITIVE" : item.advisory === "SELL" ? "OVERALL NEGATIVE" : "BALANCED REPORT"),
+                item.actionAdvice || (item.advisory === "BUY" ? "BUY DIPS" : item.advisory === "SELL" ? "SELL RALLIES" : "HOLD RANGE"),
+                `<strong>Execution:</strong> ${item.entryZone} • <strong>Target:</strong> ${item.takeProfit}`
+              )}
+            </td>
             <td style="max-width:420px;">
               <div style="font-weight:700; font-size:12.5px;">${item.newsHeadline}</div>
               <div style="font-family:var(--font-mono); font-size:10.5px; color:var(--text-muted);">${item.newsSource}</div>
@@ -1646,6 +1874,12 @@
     if (cardsEl) {
       cardsEl.innerHTML = filtered.map(item => {
         const isUp = item.changePct >= 0;
+        const isBuy = item.advisory === "BUY";
+        const isSell = item.advisory === "SELL";
+        const bannerClass = isBuy ? "banner-buy" : isSell ? "banner-sell" : "banner-hold";
+        const sentText = item.sentimentDetail || (isBuy ? "Overall Positive (Strong Earnings / AI Beat)" : isSell ? "Overall Negative (Margin Compression / Loss)" : "Balanced / Neutral Report");
+        const actionText = item.actionAdvice || (isBuy ? `BUY CALLS (${item.contract})` : isSell ? `BUY PUTS (${item.contract})` : `HOLD / TRADE RANGE (IV: ${item.iv})`);
+
         return `
           <article class="wb-asset-card">
             <div class="wb-card-top">
@@ -1654,7 +1888,7 @@
                 <div class="wb-card-name">${item.company} (${item.tvSymbol})</div>
                 <span class="wb-card-tag">${item.contract}</span>
               </div>
-              ${getAdvisoryBadgeHtml(item.advisory)}
+              ${getCompactAdvisoryBadge(item.advisory)}
             </div>
 
             <div class="wb-card-price-strip">
@@ -1668,6 +1902,11 @@
                 <div style="font-size:10px; color:var(--text-muted);">OPTION PREMIUM</div>
                 <strong style="font-size:15px;" data-live-opt="${item.ticker}">$${item.optionPremium.toFixed(2)}</strong>
               </div>
+            </div>
+
+            <div class="wb-advice-banner ${bannerClass}">
+              <div class="banner-sentiment"><strong>News Sentiment:</strong> ${sentText}</div>
+              <div class="banner-action"><strong>Options Action:</strong> ${actionText}</div>
             </div>
 
             <div class="wb-card-news-box">
@@ -1707,7 +1946,14 @@
             <td><span class="wb-card-tag">${item.contract}</span></td>
             <td style="font-family:var(--font-mono); font-weight:800;" data-live-opt="${item.ticker}">$${item.optionPremium.toFixed(2)}</td>
             <td style="font-family:var(--font-mono); font-size:11.5px;">IV: ${item.iv} • Δ: ${item.delta}</td>
-            <td>${getAdvisoryBadgeHtml(item.advisory)}</td>
+            <td>
+              ${getAdvisoryBadgeHtml(
+                item.advisory,
+                item.sentimentDetail || (item.advisory === "BUY" ? "OVERALL POSITIVE" : item.advisory === "SELL" ? "OVERALL NEGATIVE" : "BALANCED REPORT"),
+                item.actionAdvice || (item.advisory === "BUY" ? `BUY ${item.optionType}S` : item.advisory === "SELL" ? `BUY ${item.optionType}S` : "HOLD / NEUTRAL"),
+                `<strong>Contract:</strong> ${item.contract} • <strong>Premium:</strong> $${item.optionPremium.toFixed(2)}`
+              )}
+            </td>
             <td style="max-width:420px;">
               <div style="font-weight:700; font-size:12.5px;">${item.newsReport}</div>
               <div style="font-family:var(--font-mono); font-size:10.5px; color:var(--text-muted);">${item.newsSource}</div>
@@ -1740,6 +1986,12 @@
     if (cardsEl) {
       cardsEl.innerHTML = filtered.map(item => {
         const isUp = item.changePct >= 0;
+        const isBuy = item.advisory === "BUY";
+        const isSell = item.advisory === "SELL";
+        const bannerClass = isBuy ? "banner-buy" : isSell ? "banner-sell" : "banner-hold";
+        const sentText = item.sentimentDetail || (isBuy ? "Overall Positive (Bullish Macro Flow)" : isSell ? "Overall Negative (Supply Surplus / Drag)" : "Neutral / In-Line Flow");
+        const actionText = item.actionAdvice || (isBuy ? `GO LONG ${item.symbol} (${item.targetInvalidation || 'Target: Higher'})` : isSell ? `SHORT / EXIT ${item.symbol} (${item.targetInvalidation || 'Downside'})` : `HOLD CORE POSITION (${item.symbol})`);
+
         return `
           <article class="wb-asset-card">
             <div class="wb-card-top">
@@ -1748,7 +2000,7 @@
                 <div class="wb-card-name">${item.name}</div>
                 <span class="wb-card-tag">TV: ${item.tvSymbol} • ${item.exchange}</span>
               </div>
-              ${getAdvisoryBadgeHtml(item.advisory)}
+              ${getCompactAdvisoryBadge(item.advisory)}
             </div>
 
             <div class="wb-card-price-strip">
@@ -1756,6 +2008,11 @@
               <span class="mini-delta ${isUp ? 'delta-up' : 'delta-down'}" data-live-chg="${item.symbol}">
                 ${isUp ? '+' : ''}${item.changePct.toFixed(2)}%
               </span>
+            </div>
+
+            <div class="wb-advice-banner ${bannerClass}">
+              <div class="banner-sentiment"><strong>News Sentiment:</strong> ${sentText}</div>
+              <div class="banner-action"><strong>Futures Advisory:</strong> ${actionText}</div>
             </div>
 
             <div class="wb-card-news-box">
@@ -1796,7 +2053,14 @@
             <td style="font-family:var(--font-mono); font-size:11.5px;">
               H: ${formatPrice(item.dayHigh, item.decimals, item.prefix)}<br/>L: ${formatPrice(item.dayLow, item.decimals, item.prefix)}
             </td>
-            <td>${getAdvisoryBadgeHtml(item.advisory)}</td>
+            <td>
+              ${getAdvisoryBadgeHtml(
+                item.advisory,
+                item.sentimentDetail || (item.advisory === "BUY" ? "OVERALL POSITIVE" : item.advisory === "SELL" ? "OVERALL NEGATIVE" : "BALANCED REPORT"),
+                item.actionAdvice || (item.advisory === "BUY" ? "GO LONG CONTRACT" : item.advisory === "SELL" ? "SHORT CONTRACT" : "HOLD POSITION"),
+                `<strong>Target / Invalidation:</strong> ${item.targetInvalidation}`
+              )}
+            </td>
             <td style="max-width:420px;">
               <div style="font-weight:700; font-size:12.5px;">${item.newsHeadline}</div>
               <div style="font-family:var(--font-mono); font-size:10.5px; color:var(--text-muted);">${item.newsSource}</div>
@@ -1821,19 +2085,39 @@
         return true;
       });
 
-      calBody.innerHTML = calItems.map(ev => `
-        <tr style="cursor:pointer;" onclick="loadSampleNews('${ev.summary.replace(/'/g, "\\'")}')">
-          <td>
-            <strong style="font-family:var(--font-mono);">${ev.currency}</strong> • <strong>${ev.event}</strong>
-            <div style="font-size:11.5px; color:var(--text-muted); margin-top:2px;">${ev.summary}</div>
-          </td>
-          <td><span class="impact-badge ${ev.impact === 'HIGH' ? 'impact-high' : 'impact-medium'}">${ev.impact}</span></td>
-          <td style="font-family:var(--font-mono); font-weight:800;">${ev.actual}</td>
-          <td style="font-family:var(--font-mono); color:var(--text-muted);">${ev.forecast}</td>
-          <td style="font-family:var(--font-mono); color:var(--text-muted);">${ev.previous}</td>
-          <td>${getAdvisoryBadgeHtml(ev.advisory)}</td>
-        </tr>
-      `).join("");
+      calBody.innerHTML = calItems.map(ev => {
+        const isPos = ev.advisory === "BUY";
+        const isNeg = ev.advisory === "SELL";
+        const advClass = isPos ? "adv-buy" : isNeg ? "adv-sell" : "adv-hold";
+        const sentLabel = isPos ? "▲ OVERALL POSITIVE" : isNeg ? "▼ OVERALL NEGATIVE" : "◆ BALANCED PRINT";
+        const actionText = isPos ? "BUY GOLD & EQUITIES" : isNeg ? "SELL ASSETS / BUY USD" : "HOLD RANGE";
+        const actionSub = isPos
+          ? "Cooling inflation / rate cuts lower real yields; favorable for Gold & Risk assets."
+          : isNeg
+          ? "Hot inflation / contracting PMI presents macro headwind; favor USD / safe-haven cash."
+          : "In-line with consensus without directional shock; maintain existing positions.";
+
+        return `
+          <tr style="cursor:pointer;" onclick="loadSampleNews('${ev.summary.replace(/'/g, "\\'")}')">
+            <td>
+              <strong style="font-family:var(--font-mono);">${ev.currency}</strong> • <strong>${ev.event}</strong>
+              <div style="font-size:11.5px; color:var(--text-muted); margin-top:2px;">${ev.summary}</div>
+            </td>
+            <td><span class="impact-badge ${ev.impact === 'HIGH' ? 'impact-high' : 'impact-medium'}">${ev.impact}</span></td>
+            <td style="font-family:var(--font-mono); font-weight:800;">${ev.actual}</td>
+            <td style="font-family:var(--font-mono); color:var(--text-muted);">${ev.forecast}</td>
+            <td style="font-family:var(--font-mono); color:var(--text-muted);">${ev.previous}</td>
+            <td>
+              <div class="wb-advisory-block">
+                <span class="wb-adv-pill ${advClass}">
+                  ${sentLabel} → <strong>${actionText}</strong>
+                </span>
+                <div class="advisory-action-detail">${actionSub}</div>
+              </div>
+            </td>
+          </tr>
+        `;
+      }).join("");
     }
 
     if (newsGrid) {
@@ -1847,28 +2131,48 @@
         );
       });
 
-      newsGrid.innerHTML = newsItems.map(n => `
-        <div class="news-wire-card fresh-pulse">
-          <div class="news-wire-top">
-            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
-              <span class="news-source-tag">${n.symbol} • ${n.source}</span>
-              <span class="news-wire-time">${n.published || "Live Wire"}</span>
+      newsGrid.innerHTML = newsItems.map(n => {
+        const isPos = n.sentiment === "POSITIVE" || (n.advisory && n.advisory.includes("BUY"));
+        const isNeg = n.sentiment === "NEGATIVE" || (n.advisory && n.advisory.includes("SELL"));
+        const sentClass = isPos ? "sentiment-pos" : isNeg ? "sentiment-neg" : "sentiment-neu";
+        const recClass = isPos ? "rec-pos" : isNeg ? "rec-neg" : "rec-neu";
+        const sentText = n.sentimentLabel || (isPos ? "▲ OVERALL POSITIVE (BULLISH CATALYST)" : isNeg ? "▼ OVERALL NEGATIVE (BEARISH HEADWIND)" : "◆ BALANCED / NEUTRAL REPORT");
+        const advText = n.advisoryTitle || (isPos ? "▲ ACTIONABLE ADVICE: BUY / ACCUMULATE LONG" : isNeg ? "▼ ACTIONABLE ADVICE: SELL / HEDGE WITH PUTS" : "◆ ACTIONABLE ADVICE: HOLD / DEFINE EQUILIBRIUM RANGE");
+
+        return `
+          <div class="news-wire-card fresh-pulse">
+            <div class="news-wire-top">
+              <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <span class="news-source-tag">${n.symbol} • ${n.source}</span>
+                <span class="news-wire-time">${n.published || "Live Wire"}</span>
+              </div>
+              <span class="sentiment-pill ${sentClass}">${sentText}</span>
             </div>
-            ${getAdvisoryBadgeHtml(n.advisory)}
-          </div>
-          <div class="news-wire-title">${n.title}</div>
-          <div class="news-wire-snippet">${n.snippet}</div>
-          <div class="news-wire-footer">
-            <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">
-              ${n.affectedDesks}
-            </span>
-            <div style="display:flex; gap:8px;">
-              <button class="btn-link" onclick="loadSampleNews('${n.title.replace(/'/g, "\\'")}')">⚡ Advisory</button>
-              <a href="${n.url}" target="_blank" rel="noopener noreferrer" class="btn-link" style="text-decoration:none;">Read Source ↗</a>
+            <div class="news-wire-title">${n.title}</div>
+            <div class="news-wire-snippet">${n.snippet}</div>
+
+            <div class="news-wire-recommendation-box ${recClass}">
+              <div class="rec-headline">${advText}</div>
+              <div class="rec-grid">
+                <div class="rec-item"><strong>💱 CFDs Advisory:</strong> ${n.cfdAction || (isPos ? 'BUY XAUUSD, BTCUSD & NAS100 CFDs on pullbacks' : isNeg ? 'SELL / SHORT CFDs' : 'HOLD current CFD allocations')}</div>
+                <div class="rec-item"><strong>🎯 Options Advisory:</strong> ${n.optionAction || (isPos ? 'BUY Call Options (Delta > 0.45, 30-45D Exp)' : isNeg ? 'BUY Protective Put Options (Delta -0.40)' : 'HOLD range-bound volatility spreads')}</div>
+                <div class="rec-item"><strong>📈 Futures Advisory:</strong> ${n.futureAction || (isPos ? 'BUY Front-Month Futures contracts' : isNeg ? 'SELL / SHORT Futures contracts' : 'HOLD core futures exposure')}</div>
+              </div>
+              <div class="rec-rationale"><strong>News Impact Analysis:</strong> ${n.rationale || 'Report evaluated by financial news advisory engine.'}</div>
+            </div>
+
+            <div class="news-wire-footer">
+              <span style="font-family:var(--font-mono); font-size:11px; color:var(--text-muted);">
+                ${n.affectedDesks || ''}
+              </span>
+              <div style="display:flex; gap:8px;">
+                <button class="btn-link" onclick="loadSampleNews('${n.title.replace(/'/g, "\\'")}')">⚡ Advisory Details</button>
+                <a href="${n.url}" target="_blank" rel="noopener noreferrer" class="btn-link" style="text-decoration:none;">Read Source ↗</a>
+              </div>
             </div>
           </div>
-        </div>
-      `).join("");
+        `;
+      }).join("");
     }
   }
 
@@ -2036,11 +2340,102 @@
     setInterval(tick, 1000);
   }
 
+  function enrichInitialDatasets() {
+    CFDS_DATA.forEach(item => {
+      const isBuy = item.advisory === "BUY";
+      const isSell = item.advisory === "SELL";
+      if (!item.sentiment) item.sentiment = isBuy ? "POSITIVE" : isSell ? "NEGATIVE" : "NEUTRAL";
+      if (!item.sentimentDetail) {
+        if (item.symbol === "XAUUSD") item.sentimentDetail = "Overall Positive (Cooling CPI & Sovereign Gold Buying)";
+        else if (item.symbol === "BTCUSD") item.sentimentDetail = "Overall Positive (Net Institutional Spot ETF Inflows)";
+        else if (item.symbol === "USDJPY") item.sentimentDetail = "Overall Positive (US NFP Yield Premium Widening vs BoJ)";
+        else if (item.symbol === "EURUSD") item.sentimentDetail = "Overall Negative (Eurozone PMI Weakness & Dovish ECB)";
+        else if (item.symbol === "WTIUSD") item.sentimentDetail = "Overall Negative (+2.4M Barrel US Commercial Crude Build)";
+        else item.sentimentDetail = isBuy ? "Overall Positive (Bullish Catalyst)" : isSell ? "Overall Negative (Bearish Headwind)" : "Balanced / Neutral Report";
+      }
+      if (!item.actionAdvice) {
+        if (item.symbol === "XAUUSD") item.actionAdvice = "BUY DIPS ($3,870 - $3,885 zone) • Target: $3,950.00";
+        else if (item.symbol === "BTCUSD") item.actionAdvice = "BUY SPOT CFD ($64,800 - $65,400) • Target: $68,500";
+        else if (item.symbol === "USDJPY") item.actionAdvice = "BUY CARRY PAIR (159.400 - 159.750) • Target: 161.500";
+        else if (item.symbol === "EURUSD") item.actionAdvice = "SELL EURUSD RALLIES (1.0845 - 1.0865) • Target: 1.0750";
+        else if (item.symbol === "WTIUSD") item.actionAdvice = "SELL WTIUSD RALLIES ($87.00 - $87.60) • Target: $84.20";
+        else item.actionAdvice = isBuy ? `BUY DIPS (${item.entryZone}) → Target: ${item.takeProfit}` : isSell ? `SELL RALLIES (Cut: ${item.stopLoss}) → Target: ${item.takeProfit}` : `HOLD (Range: ${item.entryZone})`;
+      }
+    });
+
+    OPTIONS_DATA.forEach(item => {
+      const isBuy = item.advisory === "BUY";
+      const isSell = item.advisory === "SELL";
+      if (!item.sentiment) item.sentiment = isBuy ? "POSITIVE" : isSell ? "NEGATIVE" : "NEUTRAL";
+      if (!item.sentimentDetail) {
+        if (item.ticker === "META") item.sentimentDetail = "Overall Positive (Q4 EPS Beat +14.2% & Ad Growth +19% YoY)";
+        else if (item.ticker === "NVDA") item.sentimentDetail = "Overall Positive (Blackwell B200 GPUs Booked Out 12 Months)";
+        else if (item.ticker === "SPY") item.sentimentDetail = "Overall Positive (Resilient 227K NFP & Controlled 0.3% CPI)";
+        else if (item.ticker === "AAPL") item.sentimentDetail = "Balanced Report (Record Services $24.97B vs Steady Hardware)";
+        else if (item.ticker === "AMD") item.sentimentDetail = "Balanced Report (Data Center +122% vs In-Line Revenue Guide)";
+        else if (item.ticker === "INTC") item.sentimentDetail = "Overall Negative ($16.6B Impairment Charge & Foundry Loss)";
+        else if (item.ticker === "BA") item.sentimentDetail = "Overall Negative (Aircraft Delivery Delays & $18B+ Dilution)";
+        else item.sentimentDetail = isBuy ? "Overall Positive (Earnings / Growth Beat)" : isSell ? "Overall Negative (Operating Miss / Headwind)" : "Balanced / In-Line Consensus";
+      }
+      if (!item.actionAdvice) {
+        if (item.ticker === "META") item.actionAdvice = "BUY META $635 CALL Option (30D Exp, Delta +0.54)";
+        else if (item.ticker === "NVDA") item.actionAdvice = "BUY NVDA $205 CALL Option (30D Exp, Delta +0.51)";
+        else if (item.ticker === "SPY") item.actionAdvice = "BUY SPY $770 CALL Option (14D Macro Exp, Delta +0.49)";
+        else if (item.ticker === "AAPL") item.actionAdvice = "HOLD / TRADE AAPL $345/$355 IRON CONDOR (Delta 0.02)";
+        else if (item.ticker === "AMD") item.actionAdvice = "HOLD / TRADE AMD $490 STRADDLE (IV 44.0%, Delta 0.05)";
+        else if (item.ticker === "INTC") item.actionAdvice = "BUY INTC $57 PUT Option / SELL Long Equity (Delta -0.46)";
+        else if (item.ticker === "BA") item.actionAdvice = "BUY BA $175 PUT Option / SELL Long Equity (Delta -0.47)";
+        else item.actionAdvice = isBuy ? `BUY CALLS (${item.contract})` : isSell ? `BUY PUTS (${item.contract})` : `HOLD / TRADE RANGE (IV: ${item.iv})`;
+      }
+    });
+
+    FUTURES_DATA.forEach(item => {
+      const isBuy = item.advisory === "BUY";
+      const isSell = item.advisory === "SELL";
+      if (!item.sentiment) item.sentiment = isBuy ? "POSITIVE" : isSell ? "NEGATIVE" : "NEUTRAL";
+      if (!item.sentimentDetail) {
+        if (item.symbol === "ES=F") item.sentimentDetail = "Overall Positive (NFP +227K Beat & +9.8% Blended S&P EPS)";
+        else if (item.symbol === "NQ=F") item.sentimentDetail = "Overall Positive (Record Tech AI Infrastructure Capex)";
+        else if (item.symbol === "GC=F") item.sentimentDetail = "Overall Positive (FOMC Easing Cycle & Central Bank Buying)";
+        else if (item.symbol === "CL=F") item.sentimentDetail = "Overall Negative (+2.4M Crude Build & Non-OPEC Production Surge)";
+        else if (item.symbol === "6J=F") item.sentimentDetail = "Overall Negative (BoJ 0.25% Low Rates vs US Yield Premium)";
+        else if (item.symbol === "6E=F") item.sentimentDetail = "Overall Negative (ECB Rate Cuts & German Factory Contraction)";
+        else item.sentimentDetail = isBuy ? "Overall Positive (Bullish Macro Flow)" : isSell ? "Overall Negative (Supply Drag / Contraction)" : "Neutral / In-Line Flow";
+      }
+      if (!item.actionAdvice) {
+        if (item.symbol === "ES=F") item.actionAdvice = "LONG E-MINI S&P 500 (Target: 7,820.00 • Stop: 7,610.00)";
+        else if (item.symbol === "NQ=F") item.actionAdvice = "LONG E-MINI NASDAQ-100 (Target: 28,950.00 • Stop: 27,850.00)";
+        else if (item.symbol === "GC=F") item.actionAdvice = "LONG COMEX GOLD (Target: $4,210.00 • Stop: $4,060.00)";
+        else if (item.symbol === "CL=F") item.actionAdvice = "SHORT WTI CRUDE FUTURES (Target: $84.00 • Stop: $89.10)";
+        else if (item.symbol === "6J=F") item.actionAdvice = "SHORT CME JAPANESE YEN (Target: $0.00622 • Stop: $0.00645)";
+        else if (item.symbol === "6E=F") item.actionAdvice = "SHORT CME EURO FX (Target: $1.1140 • Stop: $1.1350)";
+        else item.actionAdvice = isBuy ? `LONG CONTRACT (${item.targetInvalidation || 'Target: Higher'})` : isSell ? `SHORT / EXIT (${item.targetInvalidation || 'Downside'})` : `HOLD CORE POSITION (${item.symbol})`;
+      }
+    });
+  }
+
+  function enrichInitialNewsItems() {
+    YAHOO_FINANCE_NEWS.forEach(n => {
+      const a = analyzeFinancialNewsHeadline(n.title);
+      if (!n.sentiment) n.sentiment = a.sentiment;
+      if (!n.sentimentLabel) n.sentimentLabel = a.sentimentLabel;
+      if (!n.sentimentDetail) n.sentimentDetail = a.sentimentDetail;
+      if (!n.advisoryTitle) n.advisoryTitle = a.advisoryTitle;
+      if (!n.advisoryBadge) n.advisoryBadge = a.advisoryBadge;
+      if (!n.cfdAction) n.cfdAction = a.cfdAction;
+      if (!n.optionAction) n.optionAction = a.optionAction;
+      if (!n.futureAction) n.futureAction = a.futureAction;
+      if (!n.rationale) n.rationale = a.rationale;
+    });
+  }
+
   // =========================================================================
   // 8. INITIALIZE ON DOM READY
   // =========================================================================
 
   document.addEventListener("DOMContentLoaded", () => {
+    enrichInitialDatasets();
+    enrichInitialNewsItems();
     updateTodayDate();
     startUtcClock();
     renderAllViews();

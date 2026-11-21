@@ -78,7 +78,7 @@
             <span class="wb-pill-outline">NO API KEYS</span>
           </div>
           <p class="wb-subtitle">
-            100% Real-Time Prices from <strong>TradingView</strong> + Live <strong>ForexFactory</strong> (CPI • NFP • FOMC) &amp; <strong>Yahoo Finance</strong> News → <strong>BUY / SELL / HOLD</strong>
+            100% Real-Time Prices from <strong>TradingView</strong> + Live <strong>ForexFactory</strong> (CPI • NFP • FOMC) &amp; <strong>Yahoo Finance</strong> News → <strong>Actionable Trading Advisories Based on Positive / Negative News Sentiment</strong>
           </p>
         </div>
       </div>
@@ -190,7 +190,7 @@
           <span class="mini-big" id="macro-cpi-actual">2.6%</span>
           <span class="mini-sub">Fcst 2.6% • Core 3.3%</span>
         </div>
-        <div class="mini-foot">Controlled CPI → <strong class="txt-buy">BUY</strong> Gold &amp; Tech</div>
+        <div class="mini-foot">▲ Overall Positive (Cooling CPI) → <strong class="txt-buy">BUY Dips on Gold &amp; Tech</strong></div>
       </div>
 
       <div class="wb-bento-mini">
@@ -202,7 +202,7 @@
           <span class="mini-big" id="macro-nfp-actual">227K</span>
           <span class="mini-sub">Fcst 202K • Unemp 4.2%</span>
         </div>
-        <div class="mini-foot">Strong Labor → <strong class="txt-buy">BUY</strong> USDJPY &amp; ES=F</div>
+        <div class="mini-foot">▲ Overall Positive (Jobs Beat) → <strong class="txt-buy">BUY USDJPY &amp; ES=F</strong></div>
       </div>
 
       <div class="wb-bento-mini">
@@ -214,43 +214,43 @@
           <span class="mini-big" id="macro-fed-actual">4.50%</span>
           <span class="mini-sub">-25 bps Easing Cycle</span>
         </div>
-        <div class="mini-foot">Liquidity Tailwind → <strong class="txt-buy">BUY</strong> BTCUSD &amp; NQ=F</div>
+        <div class="mini-foot">▲ Overall Positive (Rate Cuts) → <strong class="txt-buy">BUY BTCUSD &amp; NQ=F</strong></div>
       </div>
 
       <div class="wb-bento-mini mini-highlight" onclick="loadTradingViewChart('OANDA:XAUUSD', 'XAUUSD — Gold Spot CFD')">
         <div class="mini-top">
           <span class="mini-tag">OANDA:XAUUSD • GOLD CFD</span>
-          <span class="wb-adv-pill adv-buy">▲ BUY</span>
+          <span class="wb-adv-pill adv-buy">▲ POSITIVE • BUY</span>
         </div>
         <div class="mini-value-row">
           <span class="mini-big" id="strip-price-XAUUSD" data-live-price="XAUUSD">$3,884.69</span>
           <span class="mini-delta delta-up" id="strip-delta-XAUUSD" data-live-chg="XAUUSD">+0.18%</span>
         </div>
-        <div class="mini-foot">Click for Live TradingView Chart</div>
+        <div class="mini-foot">CPI Cooling → <strong class="txt-buy">BUY DIPS ($3,870-$3,885)</strong></div>
       </div>
 
       <div class="wb-bento-mini mini-highlight" onclick="loadTradingViewChart('BITSTAMP:BTCUSD', 'BTCUSD — Bitcoin Spot CFD')">
         <div class="mini-top">
           <span class="mini-tag">BITSTAMP:BTCUSD • CFD</span>
-          <span class="wb-adv-pill adv-buy">▲ BUY</span>
+          <span class="wb-adv-pill adv-buy">▲ POSITIVE • BUY</span>
         </div>
         <div class="mini-value-row">
           <span class="mini-big" id="strip-price-BTCUSD" data-live-price="BTCUSD">$65,380.75</span>
           <span class="mini-delta delta-down" id="strip-delta-BTCUSD" data-live-chg="BTCUSD">-4.18%</span>
         </div>
-        <div class="mini-foot">Click for Live TradingView Chart</div>
+        <div class="mini-foot">Spot Inflows → <strong class="txt-buy">ACCUMULATE LONG</strong></div>
       </div>
 
       <div class="wb-bento-mini mini-highlight" onclick="loadTradingViewChart('FX:USDJPY', 'USDJPY — FX Spot CFD')">
         <div class="mini-top">
           <span class="mini-tag">FX:USDJPY • FX CFD</span>
-          <span class="wb-adv-pill adv-buy">▲ BUY</span>
+          <span class="wb-adv-pill adv-buy">▲ POSITIVE • BUY</span>
         </div>
         <div class="mini-value-row">
           <span class="mini-big" id="strip-price-USDJPY" data-live-price="USDJPY">¥159.713</span>
           <span class="mini-delta delta-down" id="strip-delta-USDJPY" data-live-chg="USDJPY">-0.07%</span>
         </div>
-        <div class="mini-foot">Click for Live TradingView Chart</div>
+        <div class="mini-foot">NFP Jobs Beat → <strong class="txt-buy">BUY PAIR (CARRY TRADE)</strong></div>
       </div>
     </section>
 
@@ -305,9 +305,9 @@
           <div class="wb-desk-toolbar">
             <div class="wb-filter-group">
               <button class="wb-filter-btn active" onclick="filterSection('cfds', 'ALL', this)">All CFDs (14)</button>
-              <button class="wb-filter-btn" onclick="filterSection('cfds', 'BUY', this)">▲ BUY Only</button>
-              <button class="wb-filter-btn" onclick="filterSection('cfds', 'SELL', this)">▼ SELL Only</button>
-              <button class="wb-filter-btn" onclick="filterSection('cfds', 'HOLD', this)">◆ HOLD Only</button>
+              <button class="wb-filter-btn" onclick="filterSection('cfds', 'BUY', this)">▲ Positive • Buy</button>
+              <button class="wb-filter-btn" onclick="filterSection('cfds', 'SELL', this)">▼ Negative • Sell</button>
+              <button class="wb-filter-btn" onclick="filterSection('cfds', 'HOLD', this)">◆ Balanced • Hold</button>
             </div>
 
             <div class="wb-view-Readout">
@@ -336,7 +336,7 @@
                 <th>Live TradingView Price</th>
                 <th>24h Change</th>
                 <th>Day High / Low</th>
-                <th>News Advisory</th>
+                <th>News Sentiment &amp; Action Advisory</th>
                 <th>Driving Financial / Macro News Report</th>
                 <th>Chart</th>
               </tr>
@@ -360,16 +360,16 @@
             </div>
             <h2 class="wb-section-title">Options Trading Desk — Driven Solely by Earnings &amp; Macro News Reports</h2>
             <p class="wb-section-desc">
-              Live underlying stock prices pulled directly from <strong>TradingView (`NASDAQ` / `NYSE` / `AMEX`)</strong> with <strong>BUY / SELL / HOLD</strong> options advisories based strictly on financial news reports.
+              Live underlying stock prices pulled directly from <strong>TradingView (`NASDAQ` / `NYSE` / `AMEX`)</strong> with actionable options advisories based strictly on overall positive, negative, or neutral financial news reports.
             </p>
           </div>
 
           <div class="wb-desk-toolbar">
             <div class="wb-filter-group">
               <button class="wb-filter-btn active" onclick="filterSection('options', 'ALL', this)">All Options (14)</button>
-              <button class="wb-filter-btn" onclick="filterSection('options', 'BUY', this)">▲ BUY Calls</button>
-              <button class="wb-filter-btn" onclick="filterSection('options', 'SELL', this)">▼ SELL / Puts</button>
-              <button class="wb-filter-btn" onclick="filterSection('options', 'HOLD', this)">◆ HOLD / Neutral</button>
+              <button class="wb-filter-btn" onclick="filterSection('options', 'BUY', this)">▲ Positive • Buy Calls</button>
+              <button class="wb-filter-btn" onclick="filterSection('options', 'SELL', this)">▼ Negative • Buy Puts</button>
+              <button class="wb-filter-btn" onclick="filterSection('options', 'HOLD', this)">◆ Balanced • Neutral</button>
             </div>
 
             <div class="wb-view-Readout">
@@ -399,7 +399,7 @@
                 <th>Target Option Contract</th>
                 <th>Est. Option Premium</th>
                 <th>IV &amp; Delta</th>
-                <th>News Advisory</th>
+                <th>News Sentiment &amp; Action Advisory</th>
                 <th>Financial News Report Rationale</th>
               </tr>
             </thead>
@@ -422,16 +422,16 @@
             </div>
             <h2 class="wb-section-title">Futures Trading Desk — Index, Commodities, Treasury &amp; FX Futures</h2>
             <p class="wb-section-desc">
-              Live exchange futures prices pulled directly from <strong>TradingView (`CME_MINI`, `COMEX`, `NYMEX`, `CBOT`)</strong> paired with 100% news-driven <strong>BUY / SELL / HOLD</strong> signals.
+              Live exchange futures prices pulled directly from <strong>TradingView (`CME_MINI`, `COMEX`, `NYMEX`, `CBOT`)</strong> paired with actionable advisories based on overall positive or negative macro news catalysts.
             </p>
           </div>
 
           <div class="wb-desk-toolbar">
             <div class="wb-filter-group">
               <button class="wb-filter-btn active" onclick="filterSection('futures', 'ALL', this)">All Futures (14)</button>
-              <button class="wb-filter-btn" onclick="filterSection('futures', 'BUY', this)">▲ BUY Only</button>
-              <button class="wb-filter-btn" onclick="filterSection('futures', 'SELL', this)">▼ SELL Only</button>
-              <button class="wb-filter-btn" onclick="filterSection('futures', 'HOLD', this)">◆ HOLD Only</button>
+              <button class="wb-filter-btn" onclick="filterSection('futures', 'BUY', this)">▲ Positive • Buy</button>
+              <button class="wb-filter-btn" onclick="filterSection('futures', 'SELL', this)">▼ Negative • Sell</button>
+              <button class="wb-filter-btn" onclick="filterSection('futures', 'HOLD', this)">◆ Balanced • Hold</button>
             </div>
 
             <div class="wb-view-Readout">
@@ -460,7 +460,7 @@
                 <th>Live TradingView Price</th>
                 <th>24h Change</th>
                 <th>Day High / Low</th>
-                <th>News Advisory</th>
+                <th>News Sentiment &amp; Action Advisory</th>
                 <th>Macro News Report Catalyst</th>
                 <th>Chart</th>
               </tr>
@@ -507,7 +507,7 @@
                   <th>Actual</th>
                   <th>Forecast</th>
                   <th>Prev</th>
-                  <th>Signal</th>
+                  <th>News Sentiment &amp; Action Advisory</th>
                 </tr>
               </thead>
               <tbody id="full-ff-calendar-tbody"></tbody>
@@ -525,7 +525,7 @@
               </div>
               <h2 class="wb-section-title">Live Earnings &amp; Market News Reports</h2>
               <p class="wb-section-desc">
-                Real-time headlines from Yahoo Finance mapped automatically to <strong>BUY / SELL / HOLD</strong> desk actions.
+                Real-time headlines from Yahoo Finance evaluated by sentiment engine to provide explicit buy/sell trade directives with desk execution details.
               </p>
             </div>
             <div style="display:flex; gap:10px; align-items:center; flex-wrap:wrap;">
